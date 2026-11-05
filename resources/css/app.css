@@ -9,31 +9,38 @@
 
 @theme {
     --font-sans:
-        'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', ui-sans-serif,
+        'Geist', 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', ui-sans-serif,
         system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
     --font-display:
-        'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Yu Gothic',
-        ui-sans-serif, system-ui, sans-serif;
+        'Geist', 'Hiragino Sans', 'Yu Gothic', ui-sans-serif, system-ui,
+        sans-serif;
+    /* Mincho for Japanese accents; the local subset only holds the kanji in use. */
+    --font-mincho:
+        'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho',
+        'Noto Serif JP', serif;
+    --font-mono: 'Geist Mono', ui-monospace, monospace;
 
-    /* Yushika · Miravatech brand palette */
-    --color-paper: #fbf5ef;
-    --color-paper-deep: #f5e9de;
-    --color-surface: #fffcf9;
-    --color-line: #eddccd;
-    --color-line-strong: #e3cdbd;
-    --color-ink: #35231c;
-    --color-ink-soft: #4a3a33;
-    --color-ink-muted: #76625a;
-    --color-ink-subtle: #9a8378;
-    --color-shu: #d53b3a;
-    --color-shu-deep: #b32e2d;
-    --color-shu-soft: #fce4e1;
-    --color-sakura: #fdb4b4;
-    --color-cream: #f7deca;
-    --color-taupe: #bb907c;
-    --color-night-line: #4d3930;
-    --color-night-muted: #cdb5a7;
+    /* Sumi & Ai: ink on washi paper, with 紺 (kon) indigo used sparingly. */
+    --color-paper: #f5f3ee;
+    --color-paper-deep: #ece9e2;
+    --color-surface: #fbfaf7;
+    --color-line: #dcd8cf;
+    --color-line-strong: #bdb8ad;
+    --color-ink: #161616;
+    --color-ink-soft: #2a2927;
+    --color-ink-muted: #57544e;
+    --color-ink-subtle: #6b6760;
+    --color-ai: #2c3a8f;
+    --color-ai-deep: #1e2866;
+    --color-ai-soft: #e4e6ef;
+    --color-ai-light: #a3aee8;
+    --color-night: #141414;
+    --color-night-text: #ecebe6;
+    --color-night-line: #2e2d2a;
+    --color-night-muted: #a19e96;
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -84,74 +91,74 @@
 }
 
 :root {
-    --background: #fbf5ef;
-    --foreground: #35231c;
-    --card: #fffcf9;
-    --card-foreground: #35231c;
-    --popover: #fffcf9;
-    --popover-foreground: #35231c;
-    --primary: #d53b3a;
-    --primary-foreground: #fffcf9;
-    --secondary: #f5e9de;
-    --secondary-foreground: #35231c;
-    --muted: #f5e9de;
-    --muted-foreground: #76625a;
-    --accent: #f5e9de;
-    --accent-foreground: #35231c;
+    --background: #f5f3ee;
+    --foreground: #161616;
+    --card: #ffffff;
+    --card-foreground: #161616;
+    --popover: #ffffff;
+    --popover-foreground: #161616;
+    --primary: #161616;
+    --primary-foreground: #ffffff;
+    --secondary: #ece9e2;
+    --secondary-foreground: #161616;
+    --muted: #ece9e2;
+    --muted-foreground: #57544e;
+    --accent: #e4e6ef;
+    --accent-foreground: #1e2866;
     --destructive: oklch(0.577 0.245 27.325);
     --destructive-foreground: oklch(0.577 0.245 27.325);
-    --border: #eddccd;
-    --input: #e3cdbd;
-    --ring: #d53b3a;
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.704);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
-    --radius: 0.75rem;
-    --sidebar: #f5e9de;
-    --sidebar-foreground: #35231c;
-    --sidebar-primary: #d53b3a;
-    --sidebar-primary-foreground: #fffcf9;
-    --sidebar-accent: #eddccd;
-    --sidebar-accent-foreground: #35231c;
-    --sidebar-border: #eddccd;
-    --sidebar-ring: #d53b3a;
+    --border: #dcd8cf;
+    --input: #bdb8ad;
+    --ring: #2c3a8f;
+    --chart-1: #2c3a8f;
+    --chart-2: #161616;
+    --chart-3: #8a92e8;
+    --chart-4: #6b6760;
+    --chart-5: #c7cbf5;
+    --radius: 0.375rem;
+    --sidebar: #ece9e2;
+    --sidebar-foreground: #161616;
+    --sidebar-primary: #161616;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #dcd8cf;
+    --sidebar-accent-foreground: #161616;
+    --sidebar-border: #dcd8cf;
+    --sidebar-ring: #2c3a8f;
 }
 
 .dark {
-    --background: #1c1411;
-    --foreground: #f7deca;
-    --card: #261b16;
-    --card-foreground: #f7deca;
-    --popover: #261b16;
-    --popover-foreground: #f7deca;
-    --primary: #e35a57;
-    --primary-foreground: #1c1411;
-    --secondary: #33251f;
-    --secondary-foreground: #f7deca;
-    --muted: #33251f;
-    --muted-foreground: #c9ae9f;
-    --accent: #33251f;
-    --accent-foreground: #f7deca;
+    --background: #0d0d0d;
+    --foreground: #ededed;
+    --card: #161616;
+    --card-foreground: #ededed;
+    --popover: #161616;
+    --popover-foreground: #ededed;
+    --primary: #ededed;
+    --primary-foreground: #111111;
+    --secondary: #1f1f1f;
+    --secondary-foreground: #ededed;
+    --muted: #1f1f1f;
+    --muted-foreground: #a3a3a3;
+    --accent: #1d2150;
+    --accent-foreground: #c7cbf5;
     --destructive: oklch(0.396 0.141 25.723);
     --destructive-foreground: oklch(0.637 0.237 25.331);
-    --border: #3d2c25;
-    --input: #4d3930;
-    --ring: #e35a57;
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: #211813;
-    --sidebar-foreground: #f7deca;
-    --sidebar-primary: #e35a57;
-    --sidebar-primary-foreground: #1c1411;
-    --sidebar-accent: #33251f;
-    --sidebar-accent-foreground: #f7deca;
-    --sidebar-border: #3d2c25;
-    --sidebar-ring: #e35a57;
+    --border: #262626;
+    --input: #333333;
+    --ring: #7f89f0;
+    --chart-1: #7f89f0;
+    --chart-2: #ededed;
+    --chart-3: #4c57d6;
+    --chart-4: #a3a3a3;
+    --chart-5: #2b3390;
+    --sidebar: #121212;
+    --sidebar-foreground: #ededed;
+    --sidebar-primary: #7f89f0;
+    --sidebar-primary-foreground: #111111;
+    --sidebar-accent: #1f1f1f;
+    --sidebar-accent-foreground: #ededed;
+    --sidebar-border: #262626;
+    --sidebar-ring: #7f89f0;
 }
 
 @layer base {
@@ -164,87 +171,117 @@
     }
 }
 
-/* Seigaiha (青海波) wave pattern on the dark brown band. */
-@utility seigaiha-night {
-    background-color: #35231c;
-    background-image:
-        radial-gradient(
-            circle at 100% 150%,
-            #35231c 24%,
-            #44302a 24%,
-            #44302a 28%,
-            #35231c 28%,
-            #35231c 36%,
-            #44302a 36%,
-            #44302a 40%,
-            transparent 40%,
-            transparent
-        ),
-        radial-gradient(
-            circle at 0 150%,
-            #35231c 24%,
-            #44302a 24%,
-            #44302a 28%,
-            #35231c 28%,
-            #35231c 36%,
-            #44302a 36%,
-            #44302a 40%,
-            transparent 40%,
-            transparent
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            #44302a 10%,
-            #35231c 10%,
-            #35231c 23%,
-            #44302a 23%,
-            #44302a 30%,
-            #35231c 30%,
-            #35231c 43%,
-            #44302a 43%,
-            #44302a 50%,
-            #35231c 50%,
-            #35231c 63%,
-            #44302a 63%,
-            #44302a 71%,
-            transparent 71%,
-            transparent
-        ),
-        radial-gradient(
-            circle at 100% 50%,
-            #44302a 5%,
-            #35231c 5%,
-            #35231c 15%,
-            #44302a 15%,
-            #44302a 20%,
-            #35231c 20%,
-            #35231c 29%,
-            #44302a 29%,
-            #44302a 34%,
-            #35231c 34%,
-            #35231c 44%,
-            #44302a 44%,
-            #44302a 49%,
-            transparent 49%,
-            transparent
-        ),
-        radial-gradient(
-            circle at 0 50%,
-            #44302a 5%,
-            #35231c 5%,
-            #35231c 15%,
-            #44302a 15%,
-            #44302a 20%,
-            #35231c 20%,
-            #35231c 29%,
-            #44302a 29%,
-            #44302a 34%,
-            #35231c 34%,
-            #35231c 44%,
-            #44302a 44%,
-            #44302a 49%,
-            transparent 49%,
-            transparent
-        );
-    background-size: 100px 50px;
+/* Flat sumi ink band for dark sections. */
+@utility night-band {
+    background-color: var(--color-night);
+}
+
+/* Vertical Japanese label (tategaki), set in Mincho. */
+@utility tategaki {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: var(--font-mincho);
+    letter-spacing: 0.35em;
+}
+
+/* Underline that sweeps in from the left on hover. */
+@utility link-sweep {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.5s var(--ease-out-expo);
+
+    &:hover,
+    &:focus-visible {
+        background-size: 100% 1px;
+    }
+}
+
+/*
+ * Motion. Elements start hidden only once JS marks the page ready, so the
+ * content stays visible without JS, and everything is skipped for people who
+ * ask for reduced motion.
+ */
+@media (prefers-reduced-motion: no-preference) {
+    .motion-ready [data-reveal] {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+            opacity 1s var(--ease-out-expo),
+            transform 1.2s var(--ease-out-expo);
+        transition-delay: var(--delay, 0ms);
+    }
+
+    .motion-ready [data-reveal][data-shown] {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Hairline that draws itself from left to right. */
+    .motion-ready [data-rule] {
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1.4s var(--ease-out-expo);
+        transition-delay: var(--delay, 0ms);
+    }
+
+    .motion-ready [data-rule][data-shown] {
+        transform: none;
+    }
+
+    /* A line of text rising from behind a mask. */
+    .line-mask > span {
+        display: block;
+        animation: line-rise 1.3s var(--ease-out-expo) both;
+        animation-delay: var(--delay, 0ms);
+    }
+
+    /* The mark rising over the horizon like the sun. */
+    .sunrise {
+        animation: sunrise 2.4s var(--ease-out-expo) 0.2s both;
+    }
+
+    .horizon {
+        animation: horizon 1.6s var(--ease-out-expo) both;
+    }
+
+    .fade-in {
+        animation: fade-in 1.4s var(--ease-out-expo) both;
+        animation-delay: var(--delay, 0ms);
+    }
+}
+
+.line-mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.08em;
+}
+
+@keyframes line-rise {
+    from {
+        transform: translateY(105%);
+    }
+}
+
+@keyframes sunrise {
+    from {
+        transform: translateY(62%);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+}
+
+@keyframes horizon {
+    from {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
 }

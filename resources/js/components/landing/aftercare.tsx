@@ -1,16 +1,15 @@
-import { FileCode2, ShieldCheck } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Reveal } from '@/components/landing/motion';
 
 const options = [
     {
-        icon: ShieldCheck,
+        kanji: '守',
         title: 'Dirawat Miravatech',
         badge: 'Paling banyak dipilih',
         description:
             'Website atau aplikasi tetap online di server yang saya kelola. Update, backup, dan perbaikan sudah diurus lewat paket Maintenance bulanan, jadi Anda cukup fokus ke bisnis.',
     },
     {
-        icon: FileCode2,
+        kanji: '渡',
         title: 'Serah terima source code',
         description:
             'Source code, database, dan akses server diserahkan lengkap dengan panduan singkat. Anda bebas mengelola sendiri atau dengan tim Anda.',
@@ -18,51 +17,52 @@ const options = [
 ];
 
 /**
- * What happens after a project is done: ongoing care or a full handover.
+ * What happens after a project is done: ongoing care (守, protect) or a full
+ * handover (渡, hand over).
  */
 export function Aftercare() {
     return (
-        <div className="border-line flex flex-col gap-5 border-t pt-8 sm:gap-7 sm:pt-12">
-            <div className="flex flex-col gap-2">
-                <h3 className="font-display text-[22px] font-black sm:text-[28px]">
+        <div className="bg-paper-deep grid gap-10 px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-12 lg:gap-10 lg:px-14 lg:py-16">
+            <Reveal className="flex flex-col gap-3 lg:col-span-4">
+                <h3 className="text-[24px] leading-[1.2] font-light tracking-[-0.025em] sm:text-[30px]">
                     Setelah project selesai, pilih yang paling nyaman.
                 </h3>
-                <p className="text-ink-muted max-w-[640px] text-[15px] leading-[1.7] sm:text-base">
+                <p className="text-ink-muted text-[15px] leading-[1.75]">
                     Dua-duanya tersedia. Bisa juga mulai dengan Maintenance,
                     lalu minta serah terima kapan saja.
                 </p>
-            </div>
+            </Reveal>
 
-            <ul className="grid gap-3.5 md:grid-cols-2 md:gap-6">
-                {options.map(({ icon: Icon, title, badge, description }) => (
-                    <li
+            <ul className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:col-span-8">
+                {options.map(({ kanji, title, badge, description }, index) => (
+                    <Reveal
                         key={title}
-                        className={cn(
-                            'flex gap-4 rounded-xl border p-6 sm:gap-5 sm:p-8',
-                            badge
-                                ? 'border-shu bg-shu-soft/40'
-                                : 'border-line bg-surface',
-                        )}
+                        delay={index * 100}
+                        className="border-ink flex flex-col gap-4 border-t pt-6"
                     >
-                        <span className="bg-shu-soft text-shu flex size-11 shrink-0 items-center justify-center rounded-xl sm:size-12">
-                            <Icon className="size-[22px]" strokeWidth={1.6} />
-                        </span>
-                        <div className="flex flex-col gap-2">
-                            <div className="flex flex-wrap items-center gap-2.5">
-                                <h4 className="text-lg font-bold sm:text-xl">
-                                    {title}
-                                </h4>
+                        <div className="flex items-start justify-between gap-4">
+                            <div className="flex flex-col gap-1.5">
                                 {badge && (
-                                    <span className="bg-shu text-surface rounded-lg px-2.5 py-0.5 text-[11px] font-bold tracking-[0.04em] sm:text-xs">
+                                    <span className="text-ai font-mono text-[11px] tracking-[0.12em] uppercase">
                                         {badge}
                                     </span>
                                 )}
+                                <h4 className="text-[19px] font-normal tracking-[-0.01em]">
+                                    {title}
+                                </h4>
                             </div>
-                            <p className="text-ink-muted text-[15px] leading-[1.7]">
-                                {description}
-                            </p>
+                            <span
+                                lang="ja"
+                                aria-hidden="true"
+                                className="font-mincho text-line-strong text-[36px] leading-none"
+                            >
+                                {kanji}
+                            </span>
                         </div>
-                    </li>
+                        <p className="text-ink-muted text-[15px] leading-[1.75]">
+                            {description}
+                        </p>
+                    </Reveal>
                 ))}
             </ul>
         </div>

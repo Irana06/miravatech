@@ -13,7 +13,7 @@ export function StatusCheckForm({ defaultCode, tone = 'dark' }: Props) {
     return (
         <Form
             {...projectStatus.form()}
-            className="flex flex-col gap-2.5 sm:flex-row sm:gap-3"
+            className="flex flex-col gap-2.5 sm:flex-row sm:gap-0"
         >
             {({ processing }) => (
                 <>
@@ -35,10 +35,8 @@ export function StatusCheckForm({ defaultCode, tone = 'dark' }: Props) {
                             autoCapitalize="characters"
                             spellCheck={false}
                             className={cn(
-                                'text-ink placeholder:text-ink-subtle focus-visible:outline-shu h-14 w-full rounded-xl pr-4 pl-12 font-mono text-[15px] tracking-[0.06em] uppercase focus-visible:outline-2 focus-visible:outline-offset-2 sm:text-base',
-                                tone === 'dark'
-                                    ? 'bg-paper'
-                                    : 'border-line-strong bg-surface border',
+                                'text-ink placeholder:text-ink-subtle focus-visible:outline-ai border-ink h-14 w-full border pr-4 pl-12 font-mono text-[15px] tracking-[0.06em] uppercase focus-visible:outline-2 focus-visible:outline-offset-2 sm:border-r-0',
+                                tone === 'dark' ? 'bg-paper' : 'bg-surface',
                             )}
                         />
                     </div>
@@ -47,7 +45,9 @@ export function StatusCheckForm({ defaultCode, tone = 'dark' }: Props) {
                         disabled={processing}
                         className={cn(
                             buttonPrimary,
-                            'h-14 px-7 shadow-none sm:text-base',
+                            'h-14 px-8',
+                            tone === 'dark' &&
+                                'bg-ai hover:bg-ai-deep focus-visible:outline-ai-light',
                         )}
                     >
                         Cek Status

@@ -1,32 +1,29 @@
 import { usePage } from '@inertiajs/react';
 import type { ComponentProps, ReactNode } from 'react';
+import { Reveal } from '@/components/landing/motion';
 import { whatsappLink } from '@/lib/whatsapp';
 import { cn } from '@/lib/utils';
 
 export const buttonBase =
-    'inline-flex items-center justify-center gap-2.5 rounded-xl px-6 text-[15px] font-bold whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-shu disabled:pointer-events-none disabled:opacity-60 [&_svg]:shrink-0';
+    'group/button inline-flex items-center justify-center gap-3 px-6 text-[14px] font-medium tracking-[0.01em] whitespace-nowrap transition-colors duration-500 ease-out-expo focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ai disabled:pointer-events-none disabled:opacity-60 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-500 [&_svg]:ease-out-expo hover:[&_svg]:translate-x-1';
 
 export const buttonPrimary = cn(
     buttonBase,
-    'bg-shu text-surface hover:bg-shu-deep h-12 shadow-[0_10px_24px_-12px_rgba(213,59,58,0.5)]',
+    'bg-ink text-paper hover:bg-ai h-12',
 );
 
 export const buttonOutline = cn(
     buttonBase,
-    'border-ink text-ink hover:bg-ink hover:text-paper h-12 border',
+    'border-ink text-ink hover:bg-ink hover:text-paper h-12 border bg-transparent',
 );
 
-export const buttonDark = cn(
-    buttonBase,
-    'bg-ink text-paper hover:bg-ink-soft h-12',
-);
+export const buttonDark = buttonPrimary;
 
 export function Container({ className, ...props }: ComponentProps<'div'>) {
     return (
         <div
             className={cn(
-                // Full width: content runs edge to edge with a gutter that grows on wider screens.
-                'w-full px-5 sm:px-8 lg:px-14 xl:px-20 2xl:px-28',
+                'mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-14',
                 className,
             )}
             {...props}
@@ -35,56 +32,80 @@ export function Container({ className, ...props }: ComponentProps<'div'>) {
 }
 
 type SectionHeadingProps = {
-    numeral: string;
+    /** Section number, shown as 01, 02, ... */
+    index: number;
     label: string;
+    /** Japanese word set vertically in the margin on wide screens. */
+    ja?: string;
     title: ReactNode;
     description?: ReactNode;
-    align?: 'left' | 'center';
     tone?: 'light' | 'dark';
     className?: string;
 };
 
+/**
+ * Section title in the editorial style: number and a vertical Japanese word
+ * in a narrow margin column, then a large light headline.
+ */
 export function SectionHeading({
-    numeral,
+    index,
     label,
+    ja,
     title,
     description,
-    align = 'left',
     tone = 'light',
     className,
 }: SectionHeadingProps) {
+    const dark = tone === 'dark';
+    const number = String(index).padStart(2, '0');
+
     return (
-        <div
-            className={cn(
-                'flex flex-col gap-3 sm:gap-4',
-                align === 'center' && 'items-center text-center',
-                className,
-            )}
-        >
-            <div
-                className={cn(
-                    'flex items-center gap-2.5 text-[13px] font-bold tracking-[0.08em] sm:text-sm',
-                    tone === 'dark' ? 'text-sakura' : 'text-shu',
-                )}
-            >
-                <span lang="ja" className="font-display text-lg sm:text-xl">
-                    {numeral}
-                </span>
-                {label}
-            </div>
-            <h2 className="font-display max-w-[760px] text-[28px] leading-[1.3] font-black text-balance sm:text-4xl lg:text-[44px] lg:leading-[1.25]">
-                {title}
-            </h2>
-            {description && (
-                <p
+        <div className={cn('flex gap-8 lg:gap-12', className)}>
+            {ja && (
+                <div
+                    aria-hidden="true"
                     className={cn(
-                        'max-w-[600px] text-[15px] leading-[1.7] text-pretty sm:text-[17px]',
-                        tone === 'dark' ? 'text-night-muted' : 'text-ink-muted',
+                        'hidden shrink-0 flex-col items-center gap-4 pt-2 sm:flex',
+                        dark ? 'text-night-muted' : 'text-ink-subtle',
                     )}
                 >
-                    {description}
-                </p>
+                    <span className="font-mono text-[11px]">{number}</span>
+                    <span
+                        className={cn(
+                            'h-10 w-px',
+                            dark ? 'bg-night-line' : 'bg-line-strong',
+                        )}
+                    />
+                    <span lang="ja" className="tategaki text-[15px]">
+                        {ja}
+                    </span>
+                </div>
             )}
+
+            <Reveal className="flex flex-col gap-5 sm:gap-7">
+                <p
+                    className={cn(
+                        'font-mono text-[11px] tracking-[0.14em] uppercase',
+                        dark ? 'text-night-muted' : 'text-ink-subtle',
+                        ja && 'sm:hidden',
+                    )}
+                >
+                    {number} / {label}
+                </p>
+                <h2 className="font-display max-w-[820px] text-[34px] leading-[1.08] font-light tracking-[-0.035em] text-balance sm:text-[48px] lg:text-[60px]">
+                    {title}
+                </h2>
+                {description && (
+                    <p
+                        className={cn(
+                            'max-w-[540px] text-[15px] leading-[1.75] text-pretty sm:text-[16px]',
+                            dark ? 'text-night-muted' : 'text-ink-muted',
+                        )}
+                    >
+                        {description}
+                    </p>
+                )}
+            </Reveal>
         </div>
     );
 }
@@ -108,35 +129,5 @@ export function WhatsappLink({ message, ...props }: WhatsappLinkProps) {
             rel={external ? 'noopener noreferrer' : undefined}
             {...props}
         />
-    );
-}
-
-const PETAL_PATH =
-    'M50 92 C22 70 18 36 38 12 L50 24 L62 12 C82 36 78 70 50 92 Z';
-const FLOWER_PETAL_PATH =
-    'M50 50 C36 40 34 18 45 8 L50 15 L55 8 C66 18 64 40 50 50 Z';
-
-export function SakuraPetal({ className }: { className?: string }) {
-    return (
-        <svg viewBox="0 0 100 100" aria-hidden="true" className={className}>
-            <path fill="currentColor" d={PETAL_PATH} />
-        </svg>
-    );
-}
-
-export function SakuraFlower({ className }: { className?: string }) {
-    return (
-        <svg viewBox="0 0 100 100" aria-hidden="true" className={className}>
-            <g fill="currentColor">
-                {[0, 72, 144, 216, 288].map((angle) => (
-                    <path
-                        key={angle}
-                        d={FLOWER_PETAL_PATH}
-                        transform={`rotate(${angle} 50 50)`}
-                    />
-                ))}
-            </g>
-            <circle cx="50" cy="50" r="6" className="fill-shu" />
-        </svg>
     );
 }

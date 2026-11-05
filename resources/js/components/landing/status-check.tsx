@@ -6,7 +6,7 @@ import type { ProjectStatus } from '@/types';
 const example: ProjectStatus = {
     code: 'MRV-XXXX-XXXX',
     title: 'Website Company Profile',
-    package: 'Paket Take · Website',
+    package: 'Paket Growth · Website',
     status: 'development',
     status_label: 'Development',
     timeline: [
@@ -30,24 +30,24 @@ export function StatusCheck() {
     return (
         <section
             id="status"
-            className="seigaiha-night text-cream scroll-mt-16 py-14 sm:scroll-mt-[88px] sm:py-20 lg:py-28"
+            className="bg-paper-deep scroll-mt-16 py-20 sm:scroll-mt-20 sm:py-28 lg:py-40"
         >
-            <Container className="grid items-center gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-20">
-                <div className="flex flex-col gap-6">
+            <Container className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+                <div className="flex flex-col gap-10 lg:col-span-6">
                     <SectionHeading
-                        numeral="四"
-                        label="CEK STATUS PROJECT"
+                        index={4}
+                        label="Cek status project"
+                        ja="進捗"
                         title="Pantau progres project Anda, kapan saja."
                         description="Setiap order mendapat kode project. Masukkan kodenya untuk melihat tahap pengerjaan terbaru beserta catatan dari developer, tanpa perlu menunggu balasan chat."
-                        tone="dark"
                     />
-                    <StatusCheckForm />
+                    <StatusCheckForm tone="light" />
                 </div>
 
                 <ProjectStatusCard
                     project={example}
                     badge="Contoh tampilan"
-                    className="shadow-[0_30px_60px_-30px_rgba(0,0,0,0.5)]"
+                    className="border-line bg-surface border lg:col-span-5 lg:col-start-8"
                 />
             </Container>
         </section>

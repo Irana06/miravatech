@@ -4,7 +4,7 @@ import babel from '@rolldown/plugin-babel';
 import tailwindcss from '@tailwindcss/vite';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
-import { bunny } from 'laravel-vite-plugin/fonts';
+import { bunny, local } from 'laravel-vite-plugin/fonts';
 import { defineConfig, lazyPlugins } from 'vite-plus';
 
 export default defineConfig({
@@ -13,16 +13,29 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
             refresh: true,
             fonts: [
-                // Latin glyphs only; kanji accents fall back to the system
-                // Japanese font so the build does not ship large CJK files.
-                bunny('Zen Kaku Gothic New', {
-                    weights: [400, 500, 700],
+                bunny('Geist', {
+                    weights: [300, 400, 500, 600],
                     subsets: ['latin'],
                     optimizedFallbacks: false,
                 }),
-                bunny('Zen Maru Gothic', {
-                    weights: [500, 700, 900],
+                bunny('Geist Mono', {
+                    weights: [400],
                     subsets: ['latin'],
+                    optimizedFallbacks: false,
+                }),
+                // A subset holding only the Japanese characters the site uses,
+                // built by scripts/subset-mincho.mjs (about 9 KB per weight).
+                local('Shippori Mincho', {
+                    variants: [
+                        {
+                            src: 'resources/fonts/shippori-mincho/ShipporiMincho-400.woff2',
+                            weight: 400,
+                        },
+                        {
+                            src: 'resources/fonts/shippori-mincho/ShipporiMincho-500.woff2',
+                            weight: 500,
+                        },
+                    ],
                     optimizedFallbacks: false,
                 }),
             ],

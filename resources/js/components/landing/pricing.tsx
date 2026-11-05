@@ -1,5 +1,6 @@
-import { Check, MessageCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { Reveal } from '@/components/landing/motion';
 import {
     buttonOutline,
     buttonPrimary,
@@ -13,11 +14,11 @@ import { cn } from '@/lib/utils';
 import { fillTemplate, PACKAGE_MESSAGE } from '@/lib/whatsapp';
 import type { PackageCategory, PackageProduct } from '@/types';
 
-// 松竹梅: the traditional Japanese three-tier ranking.
+// One kanji per tier: 始 (start), 進 (advance), 極 (the utmost).
 const tierKanji: Record<string, string> = {
-    ume: '梅',
-    take: '竹',
-    matsu: '松',
+    starter: '始',
+    growth: '進',
+    pro: '極',
 };
 
 // Categories billed per period instead of once per project.
@@ -38,29 +39,23 @@ export function Pricing({ categories }: { categories: PackageCategory[] }) {
     return (
         <section
             id="paket"
-            className="scroll-mt-16 py-14 sm:scroll-mt-[88px] sm:py-20 lg:py-28"
+            className="scroll-mt-16 py-20 sm:scroll-mt-20 sm:py-28 lg:py-40"
         >
-            <Container className="flex flex-col gap-6 sm:gap-12">
-                <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end lg:gap-12">
-                    <SectionHeading
-                        numeral="三"
-                        label="PAKET & HARGA"
-                        title="Pilih paket: Ume, Take, atau Matsu."
-                        description={
-                            <>
-                                Terinspirasi tingkatan{' '}
-                                <span lang="ja">松竹梅</span> (pinus, bambu,
-                                plum) yang biasa dipakai di Jepang. Semua paket
-                                bisa disesuaikan dengan kebutuhan Anda.
-                            </>
-                        }
-                    />
+            <Container className="flex flex-col gap-12 sm:gap-16">
+                <SectionHeading
+                    index={3}
+                    label="Paket & harga"
+                    ja="料金"
+                    title="Harga bersahabat, mulai dari yang paling sederhana."
+                    description="Tiga tingkatan: Starter, Growth, dan Pro. Mulai dari yang Anda butuhkan sekarang, naik kelas saat bisnis tumbuh. Semua paket bisa disesuaikan."
+                />
 
+                <div className="flex flex-col">
                     {categories.length > 1 && (
                         <div
                             role="tablist"
                             aria-label="Kategori layanan"
-                            className="bg-paper-deep grid grid-cols-2 gap-1 rounded-[14px] p-1 sm:flex"
+                            className="-mx-5 flex gap-7 overflow-x-auto px-5 sm:mx-0 sm:gap-10 sm:px-0"
                         >
                             {categories.map((category) => {
                                 const selected = category.slug === active.slug;
@@ -75,10 +70,11 @@ export function Pricing({ categories }: { categories: PackageCategory[] }) {
                                             setActiveSlug(category.slug)
                                         }
                                         className={cn(
-                                            'h-11 flex-1 rounded-[10px] px-4 text-sm whitespace-nowrap transition-colors sm:px-5 sm:text-[15px]',
+                                            'relative h-12 shrink-0 text-[15px] whitespace-nowrap transition-colors duration-300',
+                                            'after:bg-ink after:ease-out-expo after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:transition-transform after:duration-500',
                                             selected
-                                                ? 'bg-surface font-bold shadow-[0_1px_2px_rgba(53,35,28,0.08)]'
-                                                : 'text-ink-muted hover:text-ink font-medium',
+                                                ? 'text-ink after:scale-x-100'
+                                                : 'text-ink-subtle hover:text-ink after:scale-x-0',
                                         )}
                                     >
                                         {category.name}
@@ -87,23 +83,25 @@ export function Pricing({ categories }: { categories: PackageCategory[] }) {
                             })}
                         </div>
                     )}
+
+                    <ul
+                        key={active.slug}
+                        role={categories.length > 1 ? 'tabpanel' : undefined}
+                        className="border-ink grid border-t lg:grid-cols-3"
+                    >
+                        {active.products.map((product, index) => (
+                            <PackageColumn
+                                key={product.id}
+                                product={product}
+                                index={index}
+                                categoryName={active.name}
+                                unit={priceUnit[active.slug]}
+                            />
+                        ))}
+                    </ul>
                 </div>
 
-                <ul
-                    role={categories.length > 1 ? 'tabpanel' : undefined}
-                    className="grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6"
-                >
-                    {active.products.map((product) => (
-                        <PackageCard
-                            key={product.id}
-                            product={product}
-                            categoryName={active.name}
-                            unit={priceUnit[active.slug]}
-                        />
-                    ))}
-                </ul>
-
-                <p className="text-ink-subtle text-center text-[13px] leading-[1.6] sm:text-sm">
+                <p className="text-ink-subtle max-w-[620px] text-[13px] leading-[1.7]">
                     Harga di atas adalah harga awal; harga final ditentukan
                     setelah diskusi brief. Tombol pesan membuka WhatsApp dengan
                     pesan yang sudah terisi otomatis.
@@ -115,12 +113,14 @@ export function Pricing({ categories }: { categories: PackageCategory[] }) {
     );
 }
 
-function PackageCard({
+function PackageColumn({
     product,
+    index,
     categoryName,
     unit,
 }: {
     product: PackageProduct;
+    index: number;
     categoryName: string;
     unit?: string;
 }) {
@@ -132,113 +132,88 @@ function PackageCard({
     });
 
     return (
-        <li
-            className={cn(
-                'relative flex flex-col gap-5 rounded-xl px-6 py-7 sm:gap-6 sm:px-9 sm:py-10',
-                featured
-                    ? 'bg-ink text-paper mt-3 md:mt-0'
-                    : 'border-line bg-surface border',
-            )}
-        >
+        <li className="border-line relative border-b lg:border-b-0 lg:border-l lg:first:border-l-0 lg:[&:first-child>div]:pl-0">
             {featured && (
-                <span className="bg-shu text-surface absolute -top-3 left-6 flex h-6 items-center rounded-lg px-2.5 text-[11px] font-bold tracking-[0.06em] sm:-top-3.5 sm:left-9 sm:h-7 sm:px-3 sm:text-xs">
-                    REKOMENDASI
-                </span>
+                <span
+                    aria-hidden="true"
+                    className="bg-ai absolute inset-x-0 -top-px h-[3px]"
+                />
             )}
-
-            <div className="flex items-center gap-3.5">
-                {kanji && (
-                    <span
-                        lang="ja"
-                        className={cn(
-                            'font-display text-[32px] leading-none font-black sm:text-[40px]',
-                            featured ? 'text-sakura' : 'text-shu',
+            <Reveal
+                delay={index * 100}
+                className="flex h-full flex-col gap-8 py-10 sm:py-12 lg:px-10 lg:py-14"
+            >
+                <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col gap-2">
+                        <h3 className="text-[28px] leading-none font-light tracking-[-0.03em] sm:text-[32px]">
+                            {product.name}
+                        </h3>
+                        {product.tagline && (
+                            <p className="text-ink-subtle text-[13px]">
+                                {product.tagline}
+                            </p>
                         )}
-                    >
-                        {kanji}
-                    </span>
-                )}
-                <div className="flex flex-col gap-0.5">
-                    <h3 className="text-[19px] font-bold sm:text-[22px]">
-                        {product.name}
-                    </h3>
-                    {product.tagline && (
-                        <p
-                            className={cn(
-                                'text-[13px] sm:text-sm',
-                                featured
-                                    ? 'text-night-muted'
-                                    : 'text-ink-subtle',
-                            )}
-                        >
-                            {product.tagline}
-                        </p>
-                    )}
-                </div>
-            </div>
-
-            <div className="flex flex-col gap-1">
-                <p
-                    className={cn(
-                        'text-[13px]',
-                        featured ? 'text-night-muted' : 'text-ink-subtle',
-                    )}
-                >
-                    {product.price === null ? 'Harga' : 'Mulai dari'}
-                </p>
-                <p className="font-display text-[28px] font-black sm:text-4xl">
-                    {product.price === null
-                        ? 'Sesuai brief'
-                        : formatRupiah(product.price)}
-                    {product.price !== null && unit && (
+                    </div>
+                    {kanji && (
                         <span
+                            lang="ja"
+                            aria-hidden="true"
                             className={cn(
-                                'ml-1 font-sans text-base font-medium',
-                                featured
-                                    ? 'text-night-muted'
-                                    : 'text-ink-subtle',
+                                'font-mincho text-[44px] leading-none',
+                                featured ? 'text-ai' : 'text-line-strong',
                             )}
                         >
-                            {unit}
+                            {kanji}
                         </span>
                     )}
-                </p>
-            </div>
+                </div>
 
-            {product.features.length > 0 && (
-                <ul
+                <div className="flex flex-col gap-2.5">
+                    <p className="text-ink-subtle font-mono text-[11px] tracking-[0.12em] uppercase">
+                        {featured && (
+                            <span className="text-ai">Rekomendasi · </span>
+                        )}
+                        {product.price === null ? 'Harga' : 'Mulai dari'}
+                    </p>
+                    <p className="text-[34px] leading-none font-light tracking-[-0.03em] tabular-nums sm:text-[40px]">
+                        {product.price === null
+                            ? 'Sesuai brief'
+                            : formatRupiah(product.price)}
+                        {product.price !== null && unit && (
+                            <span className="text-ink-subtle ml-1.5 text-base tracking-normal">
+                                {unit}
+                            </span>
+                        )}
+                    </p>
+                </div>
+
+                {product.features.length > 0 && (
+                    <ul className="flex flex-col gap-3 text-[14px] leading-[1.6] sm:text-[15px]">
+                        {product.features.map((feature) => (
+                            <li key={feature} className="flex gap-3.5">
+                                <span
+                                    aria-hidden="true"
+                                    className="bg-ink-subtle mt-[11px] h-px w-3 shrink-0"
+                                />
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+
+                <WhatsappLink
+                    message={message}
                     className={cn(
-                        'flex flex-col gap-2.5 border-t pt-5 text-sm leading-normal sm:gap-3 sm:pt-6 sm:text-[15px]',
-                        featured ? 'border-night-line' : 'border-line',
+                        'mt-auto w-full justify-between sm:w-auto sm:self-start',
+                        featured ? buttonPrimary : buttonOutline,
                     )}
                 >
-                    {product.features.map((feature) => (
-                        <li key={feature} className="flex gap-2.5">
-                            <Check
-                                className={cn(
-                                    'mt-0.5 size-[18px] shrink-0',
-                                    featured ? 'text-sakura' : 'text-shu',
-                                )}
-                                strokeWidth={2.2}
-                            />
-                            {feature}
-                        </li>
-                    ))}
-                </ul>
-            )}
-
-            <WhatsappLink
-                message={message}
-                className={cn(
-                    'mt-auto',
-                    featured ? cn(buttonPrimary, 'shadow-none') : buttonOutline,
-                )}
-            >
-                <MessageCircle className="size-[18px]" />
-                {product.price === null
-                    ? 'Diskusikan via WhatsApp'
-                    : 'Pesan via WhatsApp'}
-            </WhatsappLink>
+                    {product.price === null
+                        ? 'Diskusikan via WhatsApp'
+                        : 'Pesan via WhatsApp'}
+                    <ArrowRight className="size-4" />
+                </WhatsappLink>
+            </Reveal>
         </li>
     );
 }

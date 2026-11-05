@@ -41,21 +41,21 @@ export function ProjectStatusCard({ project, badge, className }: Props) {
     return (
         <article
             className={cn(
-                'bg-paper text-ink flex flex-col gap-5 rounded-xl p-5 sm:gap-6 sm:p-8',
+                'bg-paper text-ink flex flex-col gap-5 p-5 sm:gap-6 sm:p-8',
                 className,
             )}
         >
             <header className="flex items-start justify-between gap-4">
                 <div className="flex min-w-0 flex-col gap-1 sm:gap-1.5">
                     {badge && (
-                        <p className="text-ink-subtle text-[11px] font-bold tracking-[0.08em] uppercase">
+                        <p className="text-ink-subtle text-[11px] font-medium tracking-[0.08em] uppercase">
                             {badge}
                         </p>
                     )}
-                    <p className="text-shu font-mono text-xs tracking-[0.06em] sm:text-[13px]">
+                    <p className="text-ai font-mono text-xs tracking-[0.06em] sm:text-[13px]">
                         {project.code}
                     </p>
-                    <h3 className="text-[17px] font-bold sm:text-xl">
+                    <h3 className="text-[19px] font-normal tracking-[-0.01em] sm:text-[22px]">
                         {project.title}
                     </h3>
                     {project.package && (
@@ -66,20 +66,20 @@ export function ProjectStatusCard({ project, badge, className }: Props) {
                 </div>
                 <span
                     className={cn(
-                        'flex h-7 shrink-0 items-center gap-1.5 rounded-lg px-2.5 text-xs font-bold sm:h-[30px] sm:gap-2 sm:px-3 sm:text-[13px]',
+                        'flex h-7 shrink-0 items-center gap-1.5 px-2.5 text-xs font-medium sm:h-[30px] sm:gap-2 sm:px-3 sm:text-[13px]',
                         project.status === 'completed' && 'bg-ink text-paper',
                         project.status === 'cancelled' &&
                             'bg-paper-deep text-ink-muted',
-                        isOpen && 'bg-shu-soft text-shu-deep',
+                        isOpen && 'bg-ai-soft text-ai-deep',
                     )}
                 >
-                    {isOpen && <span className="bg-shu size-2 rounded-full" />}
+                    {isOpen && <span className="bg-ai size-2 rounded-full" />}
                     {project.status_label}
                 </span>
             </header>
 
             {project.status === 'cancelled' && (
-                <p className="bg-paper-deep text-ink-muted rounded-xl px-4 py-3 text-sm leading-[1.6]">
+                <p className="bg-paper-deep text-ink-muted px-4 py-3 text-sm leading-[1.6]">
                     Project ini dibatalkan. Hubungi kami lewat WhatsApp jika ada
                     pertanyaan.
                 </p>
@@ -107,7 +107,7 @@ export function ProjectStatusCard({ project, badge, className }: Props) {
                                         className={cn(
                                             state === 'done' && 'font-medium',
                                             state === 'current' &&
-                                                'text-shu font-bold',
+                                                'text-ai font-medium',
                                         )}
                                     >
                                         {step.label}
@@ -145,8 +145,8 @@ function StepMarker({ state }: { state: StepState }) {
 
     if (state === 'current') {
         return (
-            <span className="border-shu mt-px flex size-[22px] shrink-0 items-center justify-center rounded-full border-2 sm:size-6">
-                <span className="bg-shu size-2.5 rounded-full" />
+            <span className="border-ai mt-px flex size-[22px] shrink-0 items-center justify-center rounded-full border-2 sm:size-6">
+                <span className="bg-ai size-2.5 rounded-full" />
             </span>
         );
     }
@@ -158,7 +158,7 @@ function StepMarker({ state }: { state: StepState }) {
 
 function Note({ note }: { note: NonNullable<ProjectStatus['latest_note']> }) {
     return (
-        <p className="bg-paper-deep text-ink-muted rounded-xl px-3.5 py-3 text-[13px] leading-[1.6] sm:text-sm">
+        <p className="bg-paper-deep text-ink-muted px-3.5 py-3 text-[13px] leading-[1.6] sm:text-sm">
             <span className="text-ink-soft font-medium">Catatan terbaru</span>
             {note.date && <span> · {note.date}</span>}
             <br />

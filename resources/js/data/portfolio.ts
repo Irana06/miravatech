@@ -27,6 +27,18 @@ export const portfolio: PortfolioItem[] = [
         ],
     },
     {
+        title: 'Otosora',
+        category: 'Aplikasi Mobile · Flutter',
+        summary:
+            'Produk Miravatech: pemutar musik Android tanpa iklan yang menggabungkan lagu di HP, streaming, dan unduhan dalam satu aplikasi.',
+        image: '/images/portfolio/otosora.webp',
+        highlights: [
+            'Streaming YouTube Music, radio dari lagu, impor playlist YouTube & Spotify',
+            'Unduh dari banyak situs lewat menu Bagikan, lengkap dengan metadata dan cover',
+            'Equalizer, sleep timer, lirik, smart playlist, dan statistik dengar',
+        ],
+    },
+    {
         title: 'yushika.my.id',
         category: 'Website · React',
         summary:

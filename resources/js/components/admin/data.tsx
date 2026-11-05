@@ -54,8 +54,8 @@ export function Td({ className, ...props }: ComponentProps<'td'>) {
 
 const projectStatusStyles: Record<string, string> = {
     pending: 'bg-secondary text-secondary-foreground',
-    design: 'bg-sakura/40 text-ink dark:bg-sakura/15 dark:text-sakura',
-    development: 'bg-shu-soft text-shu-deep dark:bg-shu/20 dark:text-sakura',
+    design: 'bg-ai-light/40 text-ink dark:bg-ai-light/15 dark:text-ai-light',
+    development: 'bg-ai-soft text-ai-deep dark:bg-ai/20 dark:text-ai-light',
     review: 'bg-amber-100 text-amber-900 dark:bg-amber-400/15 dark:text-amber-200',
     completed:
         'bg-emerald-100 text-emerald-900 dark:bg-emerald-400/15 dark:text-emerald-200',

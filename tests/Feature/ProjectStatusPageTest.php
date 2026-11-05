@@ -48,10 +48,10 @@ class ProjectStatusPageTest extends TestCase
 
     public function test_unknown_code_shows_not_found()
     {
-        $this->get(route('project-status', ['kode' => 'SHC-AAAA-BBBB']))
+        $this->get(route('project-status', ['kode' => 'MRV-AAAA-BBBB']))
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->where('code', 'SHC-AAAA-BBBB')
+                ->where('code', 'MRV-AAAA-BBBB')
                 ->where('project', null)
             );
     }

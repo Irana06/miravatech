@@ -19,11 +19,11 @@ export const faq: FaqItem[] = [
     },
     {
         question: 'Berapa kali saya bisa minta revisi?',
-        answer: 'Ume 2 kali, Take 3 kali, dan Matsu disepakati bersama di tahap Rancang. Perubahan di luar itu dihitung sebagai pekerjaan tambahan, dengan harga yang disampaikan dulu sebelum dikerjakan.',
+        answer: 'Starter 2 kali, Growth 3 kali, dan Pro disepakati bersama di tahap Rancang. Perubahan di luar itu dihitung sebagai pekerjaan tambahan, dengan harga yang disampaikan dulu sebelum dikerjakan.',
     },
     {
         question: 'Apakah source code diserahkan ke saya?',
-        answer: 'Bisa. Setelah project selesai ada dua pilihan: dirawat ShikaComp lewat paket Maintenance (website tetap online di server saya, update dan backup diurus), atau serah terima penuh berupa source code, database, dan akses server beserta panduan singkat. Mulai dengan Maintenance pun tetap bisa minta serah terima kapan saja.',
+        answer: 'Bisa. Setelah project selesai ada dua pilihan: dirawat Miravatech lewat paket Maintenance (website tetap online di server saya, update dan backup diurus), atau serah terima penuh berupa source code, database, dan akses server beserta panduan singkat. Mulai dengan Maintenance pun tetap bisa minta serah terima kapan saja.',
     },
     {
         question: 'Apakah ada garansi?',

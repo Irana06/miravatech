@@ -1,8 +1,11 @@
 import type { ReactNode } from 'react';
+import { useMotionReady } from '@/components/landing/motion';
 import { SiteFooter } from '@/components/landing/site-footer';
 import { SiteHeader } from '@/components/landing/site-header';
 
 export default function PublicLayout({ children }: { children: ReactNode }) {
+    useMotionReady();
+
     return (
         <div className="bg-paper text-ink flex min-h-screen flex-col">
             <SiteHeader />

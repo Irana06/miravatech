@@ -17,7 +17,7 @@ export default function CreateProject({ products, paymentOptions }: Props) {
             <AdminPage>
                 <PageHeader
                     title="Buat project"
-                    description="Kode project (SHC-XXXX-XXXX) dibuat otomatis setelah disimpan."
+                    description="Kode project (MRV-XXXX-XXXX) dibuat otomatis setelah disimpan."
                 />
                 <ProjectForm
                     products={products}

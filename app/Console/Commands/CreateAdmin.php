@@ -19,7 +19,7 @@ class CreateAdmin extends Command
     /**
      * @var string
      */
-    protected $signature = 'shikacomp:admin {email : Email of the admin account}';
+    protected $signature = 'miravatech:admin {email : Email of the admin account}';
 
     /**
      * @var string

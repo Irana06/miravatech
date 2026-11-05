@@ -1,4 +1,6 @@
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { MiravaMark } from '@/components/landing/brand';
+import { MaskLine, Rule } from '@/components/landing/motion';
 import {
     buttonOutline,
     buttonPrimary,
@@ -8,78 +10,109 @@ import {
 import { cn } from '@/lib/utils';
 import { CONSULT_MESSAGE } from '@/lib/whatsapp';
 
-const stack = ['Laravel', 'React', 'Flutter', 'Server & CI/CD'];
-
 export function Hero() {
     return (
-        <section className="overflow-hidden">
-            <Container className="grid items-center gap-6 pt-8 pb-14 sm:gap-10 sm:pt-12 lg:grid-cols-2 lg:gap-[72px] lg:pt-24 lg:pb-28">
-                <div className="flex flex-col gap-5 sm:gap-7 lg:gap-8">
-                    <p className="text-ink-muted flex items-center gap-3 text-[13px] font-medium tracking-[0.06em] sm:text-sm sm:tracking-[0.08em]">
-                        <span className="bg-shu h-0.5 w-6 sm:w-8" />
-                        Jasa Pembuatan Website &amp; Aplikasi
-                    </p>
+        <section className="relative overflow-hidden">
+            <p
+                lang="ja"
+                aria-hidden="true"
+                className="tategaki text-ink-subtle fade-in absolute top-16 left-5 hidden text-[13px] xl:block 2xl:left-10"
+                style={{ '--delay': '900ms' } as React.CSSProperties}
+            >
+                未来をつくる
+            </p>
 
-                    <h1 className="font-display text-[36px] leading-[1.28] font-black text-pretty sm:text-5xl sm:leading-[1.24] lg:text-[56px]">
-                        Website &amp; aplikasi yang dirancang teliti, dibangun{' '}
-                        <span className="text-shu">sepenuh hati.</span>
+            <Container className="flex min-h-[min(calc(100svh-4rem),760px)] flex-col justify-between gap-12 pt-12 pb-10 sm:min-h-[min(calc(100svh-5rem),840px)] sm:pt-16 lg:gap-16 lg:pt-20">
+                <div className="grid items-end gap-12 lg:grid-cols-12 lg:gap-10">
+                    <h1 className="font-display text-[44px] leading-[1.02] font-light tracking-[-0.045em] sm:text-[72px] lg:col-span-7 lg:text-[76px] xl:text-[92px]">
+                        <MaskLine>Teknologi yang</MaskLine>
+                        <MaskLine delay={120}>membawa bisnis</MaskLine>
+                        <MaskLine delay={240}>
+                            ke masa depan<span className="text-ai">.</span>
+                        </MaskLine>
                     </h1>
 
-                    <p className="text-ink-muted max-w-[540px] text-base leading-[1.7] sm:text-lg lg:text-[19px] lg:leading-[1.75]">
-                        ShikaComp membantu UMKM, startup, instansi, hingga
-                        kebutuhan personal: website dengan Laravel &amp; React,
-                        aplikasi mobile dengan Flutter, sampai benar-benar
-                        online di server.
-                    </p>
-
-                    <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-                        <WhatsappLink
-                            message={CONSULT_MESSAGE}
-                            className={cn(
-                                buttonPrimary,
-                                'h-14 px-7 sm:text-base',
-                            )}
-                        >
-                            <MessageCircle className="size-5" />
-                            Konsultasi via WhatsApp
-                        </WhatsappLink>
-                        <a
-                            href="/#status"
-                            className={cn(buttonOutline, 'h-14 sm:text-base')}
-                        >
-                            Cek Status Project
-                            <ArrowRight className="size-[18px]" />
-                        </a>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 sm:pt-2">
-                        <span className="text-ink-subtle hidden text-[13px] sm:inline">
-                            Dikerjakan dengan
-                        </span>
-                        <ul className="flex flex-wrap gap-2">
-                            {stack.map((item) => (
-                                <li
-                                    key={item}
-                                    className="border-line bg-surface flex h-8 items-center rounded-xl border px-3 text-xs font-medium sm:text-[13px]"
-                                >
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    <Sunrise className="lg:col-span-5" />
                 </div>
 
-                <div className="order-first lg:order-last lg:-mr-12">
-                    <img
-                        src="/images/brand/hero-mascot.jpg"
-                        alt="Maskot rusa Yushika di depan torii dan matahari merah, dikelilingi bunga sakura"
-                        width={1280}
-                        height={1004}
-                        fetchPriority="high"
-                        className="mx-auto h-auto w-full max-w-[650px]"
-                    />
+                <div className="flex flex-col gap-6">
+                    <Rule delay={600} className="bg-ink" />
+                    <div
+                        className="fade-in grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10"
+                        style={{ '--delay': '800ms' } as React.CSSProperties}
+                    >
+                        <p className="text-ink-muted max-w-[440px] text-[15px] leading-[1.75] sm:text-base lg:col-span-5">
+                            Miravatech membangun website, aplikasi mobile, dan
+                            server yang rapi dan mudah dikembangkan. Harga
+                            bersahabat untuk bisnis yang baru mulai, dengan
+                            standar kerja yang siap untuk skala lebih besar.
+                        </p>
+
+                        <dl className="flex flex-col gap-3 text-[13px] lg:col-span-3">
+                            <div className="flex gap-4">
+                                <dt className="text-ink-subtle w-16 shrink-0">
+                                    Untuk
+                                </dt>
+                                <dd>UMKM, industri, klien internasional</dd>
+                            </div>
+                            <div className="flex gap-4">
+                                <dt className="text-ink-subtle w-16 shrink-0">
+                                    Stack
+                                </dt>
+                                <dd>Laravel, React, Flutter, server</dd>
+                            </div>
+                        </dl>
+
+                        <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row lg:col-span-4 lg:justify-end">
+                            <WhatsappLink
+                                message={CONSULT_MESSAGE}
+                                className={cn(buttonPrimary, 'h-13 px-7')}
+                            >
+                                Konsultasi gratis
+                                <ArrowRight className="size-4" />
+                            </WhatsappLink>
+                            <a
+                                href="/#paket"
+                                className={cn(buttonOutline, 'h-13 px-7')}
+                            >
+                                Lihat paket
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </Container>
         </section>
+    );
+}
+
+/**
+ * The two peaks rising over a horizon line, like the sun at dawn:
+ * 未来, the future, in the name.
+ */
+function Sunrise({ className }: { className?: string }) {
+    return (
+        <div
+            aria-hidden="true"
+            className={cn(
+                'relative mx-auto aspect-[5/4] w-full max-w-[520px] lg:max-w-none',
+                className,
+            )}
+        >
+            <div className="absolute inset-x-0 top-0 bottom-[24%] flex items-end justify-center overflow-hidden">
+                <MiravaMark className="sunrise text-ink w-[80%]" />
+            </div>
+            <div className="horizon bg-ink absolute inset-x-0 bottom-[24%] h-px origin-left" />
+            <div
+                className="fade-in text-ink-subtle absolute inset-x-0 bottom-0 flex h-[24%] items-start justify-between pt-4 text-[12px]"
+                style={{ '--delay': '1200ms' } as React.CSSProperties}
+            >
+                <span lang="ja" className="font-mincho text-ink text-[22px]">
+                    未来
+                </span>
+                <span className="font-mono tracking-[0.08em] uppercase">
+                    mirai · masa depan
+                </span>
+            </div>
+        </div>
     );
 }

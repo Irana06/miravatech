@@ -12,12 +12,12 @@ return [
     |
     */
 
-    'whatsapp' => env('SHIKACOMP_WHATSAPP', '6282233365018'),
+    'whatsapp' => env('MIRAVATECH_WHATSAPP', '6282233365018'),
 
-    'email' => env('SHIKACOMP_EMAIL'),
+    'email' => env('MIRAVATECH_EMAIL'),
 
-    'instagram' => env('SHIKACOMP_INSTAGRAM'),
+    'instagram' => env('MIRAVATECH_INSTAGRAM'),
 
-    'business_hours' => env('SHIKACOMP_BUSINESS_HOURS'),
+    'business_hours' => env('MIRAVATECH_BUSINESS_HOURS'),
 
 ];

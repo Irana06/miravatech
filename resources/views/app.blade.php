@@ -22,26 +22,27 @@
         {{-- Inline style to set the HTML background color based on our theme in app.css --}}
         <style>
             html {
-                background-color: #fbf5ef;
+                background-color: #fafaf9;
             }
 
             html.dark {
-                background-color: #1c1411;
+                background-color: #0d0d0d;
             }
         </style>
 
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <meta name="theme-color" content="#d53b3a">
+        <meta name="theme-color" content="#111111">
 
         {{-- Link previews (WhatsApp, Facebook, LinkedIn, X) read these without running JavaScript. --}}
-        <meta name="description" content="ShikaComp oleh Yushika: jasa pembuatan website (Laravel & React), aplikasi mobile (Flutter), maintenance, pemulihan website kena hack, dan integrasi sistem.">
+        <meta name="description" content="Miravatech oleh Yushika: jasa pembuatan website (Laravel & React), aplikasi mobile (Flutter), maintenance, pemulihan website kena hack, dan integrasi sistem.">
         <link rel="canonical" href="{{ url()->current() }}">
         <meta property="og:type" content="website">
-        <meta property="og:site_name" content="ShikaComp">
+        <meta property="og:site_name" content="Miravatech">
         <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:title" content="ShikaComp · Jasa Pembuatan Website & Aplikasi">
-        <meta property="og:description" content="Website, aplikasi mobile, dan servernya. Dirancang teliti, dibangun sepenuh hati.">
+        <meta property="og:title" content="Miravatech · Jasa Pembuatan Website & Aplikasi">
+        <meta property="og:description" content="Website, aplikasi mobile, dan server untuk UMKM, industri, dan klien internasional.">
         <meta property="og:image" content="{{ url('/images/og.jpg') }}">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">

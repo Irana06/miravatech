@@ -30,15 +30,16 @@ export default function ProjectStatusPage({ code, project }: Props) {
             <section className="py-12 sm:py-20">
                 <Container className="flex max-w-[760px] flex-col gap-8 sm:gap-10">
                     <SectionHeading
-                        numeral="四"
-                        label="CEK STATUS PROJECT"
+                        index={1}
+                        label="Cek status project"
+                        ja="進捗"
                         title="Pantau progres project Anda."
                         description={
                             <>
                                 Masukkan kode project yang Anda terima saat
                                 order. Formatnya{' '}
                                 <span className="font-mono whitespace-nowrap">
-                                    SHC-XXXX-XXXX
+                                    MRV-XXXX-XXXX
                                 </span>
                                 .
                             </>
@@ -55,13 +56,13 @@ export default function ProjectStatusPage({ code, project }: Props) {
                     )}
 
                     {code && !project && (
-                        <div className="border-line bg-surface flex flex-col items-start gap-4 rounded-xl border p-6 sm:p-8">
+                        <div className="border-line bg-surface flex flex-col items-start gap-4 border p-6 sm:p-8">
                             <SearchX
-                                className="text-shu size-8"
+                                className="text-ai size-8"
                                 strokeWidth={1.6}
                             />
                             <div className="flex flex-col gap-2">
-                                <h2 className="text-lg font-bold sm:text-xl">
+                                <h2 className="text-lg font-medium sm:text-xl">
                                     Kode{' '}
                                     <span className="font-mono tracking-[0.04em]">
                                         {code}
@@ -75,7 +76,7 @@ export default function ProjectStatusPage({ code, project }: Props) {
                                 </p>
                             </div>
                             <WhatsappLink
-                                message={`Halo ShikaComp, saya ingin menanyakan status project dengan kode ${code}.`}
+                                message={`Halo Miravatech, saya ingin menanyakan status project dengan kode ${code}.`}
                                 className={cn(buttonOutline, 'h-11 text-sm')}
                             >
                                 <MessageCircle className="size-[18px]" />

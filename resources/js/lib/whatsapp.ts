@@ -1,8 +1,8 @@
 export const CONSULT_MESSAGE =
-    'Halo ShikaComp, saya ingin konsultasi tentang pembuatan website/aplikasi.';
+    'Halo Miravatech, saya ingin konsultasi tentang pembuatan website/aplikasi.';
 
 export const PACKAGE_MESSAGE =
-    'Halo ShikaComp, saya tertarik dengan paket {paket} ({kategori}). Boleh konsultasi dulu?';
+    'Halo Miravatech, saya tertarik dengan paket {paket} ({kategori}). Boleh konsultasi dulu?';
 
 /**
  * Build a wa.me link. Local numbers (08xx) are converted to 628xx.

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shicomp - Solusi Manajemen Modern</title>
+    <title>Miravatech - Solusi Manajemen Modern</title>
     
     <!-- Fonts: Plus Jakarta Sans for a modern, geometric, premium feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,7 +82,7 @@
                     <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white">
                         <i class="ph-bold ph-asterisk-simple text-xl"></i>
                     </div>
-                    <span class="font-bold text-xl text-gray-900 tracking-tight">Shicomp</span>
+                    <span class="font-bold text-xl text-gray-900 tracking-tight">Miravatech</span>
                 </div>
 
                 <!-- Desktop Menu -->

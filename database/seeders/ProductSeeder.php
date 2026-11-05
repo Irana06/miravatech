@@ -25,15 +25,15 @@ class ProductSeeder extends Seeder
             $category['slug'] => ProductCategory::updateOrCreate(['slug' => $category['slug']], $category),
         ]);
 
-        $waTemplate = 'Halo ShikaComp, saya tertarik dengan paket {paket} ({kategori}). Boleh konsultasi dulu?';
+        $waTemplate = 'Halo Miravatech, saya tertarik dengan paket {paket} ({kategori}). Boleh konsultasi dulu?';
 
         $packages = [
             'website' => [
                 [
                     'slug' => 'website-ume',
-                    'name' => 'Ume',
+                    'name' => 'Starter',
                     'tagline' => 'UMKM & personal',
-                    'price' => 1500000,
+                    'price' => 750000,
                     'features' => [
                         'Landing page atau company profile',
                         'Tampilan rapi di HP & desktop',
@@ -43,9 +43,9 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'website-take',
-                    'name' => 'Take',
+                    'name' => 'Growth',
                     'tagline' => 'Bisnis yang sedang tumbuh',
-                    'price' => 4500000,
+                    'price' => 2500000,
                     'is_featured' => true,
                     'features' => [
                         'Website multi-halaman + panel admin',
@@ -55,9 +55,9 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'website-matsu',
-                    'name' => 'Matsu',
-                    'tagline' => 'Startup, korporat & instansi',
-                    'price' => 12000000,
+                    'name' => 'Pro',
+                    'tagline' => 'Industri, korporat & instansi',
+                    'price' => 6500000,
                     'features' => [
                         'Sistem web custom (Laravel + React)',
                         'Dashboard, laporan & manajemen user',
@@ -69,9 +69,9 @@ class ProductSeeder extends Seeder
             'aplikasi-mobile' => [
                 [
                     'slug' => 'mobile-ume',
-                    'name' => 'Ume',
+                    'name' => 'Starter',
                     'tagline' => 'Aplikasi sederhana',
-                    'price' => 5000000,
+                    'price' => 3000000,
                     'features' => [
                         'Hingga 6 halaman aplikasi',
                         'Data tersimpan di HP, bisa dipakai offline',
@@ -80,9 +80,9 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'mobile-take',
-                    'name' => 'Take',
+                    'name' => 'Growth',
                     'tagline' => 'Aplikasi dengan akun & server',
-                    'price' => 12000000,
+                    'price' => 7500000,
                     'is_featured' => true,
                     'features' => [
                         'Login & akun pengguna',
@@ -93,7 +93,7 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'mobile-matsu',
-                    'name' => 'Matsu',
+                    'name' => 'Pro',
                     'tagline' => 'Aplikasi custom',
                     'price' => null,
                     'features' => [
@@ -106,9 +106,9 @@ class ProductSeeder extends Seeder
             'maintenance' => [
                 [
                     'slug' => 'maintenance-ume',
-                    'name' => 'Ume',
+                    'name' => 'Starter',
                     'tagline' => 'Website tetap aman',
-                    'price' => 250000,
+                    'price' => 100000,
                     'features' => [
                         'Backup mingguan',
                         'Update keamanan',
@@ -118,24 +118,24 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'maintenance-take',
-                    'name' => 'Take',
+                    'name' => 'Growth',
                     'tagline' => 'Website bisnis yang aktif',
-                    'price' => 600000,
+                    'price' => 300000,
                     'is_featured' => true,
                     'features' => [
-                        'Semua di paket Ume',
-                        'Hosting di server ShikaComp, termasuk SSL',
+                        'Semua di paket Starter',
+                        'Hosting di server Miravatech, termasuk SSL',
                         'Perbaikan bug & perubahan kecil hingga 2 jam per bulan',
                         'Backup harian',
                     ],
                 ],
                 [
                     'slug' => 'maintenance-matsu',
-                    'name' => 'Matsu',
+                    'name' => 'Pro',
                     'tagline' => 'Sistem yang harus selalu jalan',
-                    'price' => 1500000,
+                    'price' => 900000,
                     'features' => [
-                        'Semua di paket Take',
+                        'Semua di paket Growth',
                         'Server / VPS khusus yang dikelola penuh',
                         'Perubahan & pengembangan hingga 6 jam per bulan',
                         'Respons prioritas',
@@ -147,7 +147,7 @@ class ProductSeeder extends Seeder
                     'slug' => 'pemulihan-website',
                     'name' => 'Pemulihan Website',
                     'tagline' => 'Website kena hack',
-                    'price' => 500000,
+                    'price' => 350000,
                     'features' => [
                         'Hapus malware & backdoor',
                         'Tutup celah keamanan',
@@ -159,7 +159,7 @@ class ProductSeeder extends Seeder
                     'slug' => 'perbaikan-bug',
                     'name' => 'Perbaikan Bug',
                     'tagline' => 'Error, lambat, atau mati',
-                    'price' => 300000,
+                    'price' => 150000,
                     'is_featured' => true,
                     'features' => [
                         'Cari penyebab sampai ke akar',
@@ -171,7 +171,7 @@ class ProductSeeder extends Seeder
                     'slug' => 'integrasi-sistem',
                     'name' => 'Integrasi Sistem',
                     'tagline' => 'Payment gateway & API',
-                    'price' => 1000000,
+                    'price' => 750000,
                     'features' => [
                         'Payment gateway (Midtrans, dll.)',
                         'API pihak ketiga',

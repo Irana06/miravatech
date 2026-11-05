@@ -1,4 +1,4 @@
-import { Minus, Plus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { Container, SectionHeading } from '@/components/landing/primitives';
 import { faq } from '@/data/faq';
 
@@ -13,32 +13,35 @@ export function Faq() {
     return (
         <section
             id="faq"
-            className="scroll-mt-16 py-14 sm:scroll-mt-[88px] sm:py-20 lg:py-28"
+            className="scroll-mt-16 pt-0 pb-20 sm:scroll-mt-20 sm:pb-28 lg:pb-40"
         >
-            <Container className="grid gap-6 lg:grid-cols-[400px_minmax(0,1fr)] lg:gap-24">
+            <Container className="grid gap-12 lg:grid-cols-12 lg:gap-10">
                 <SectionHeading
-                    numeral="七"
+                    index={7}
                     label="FAQ"
+                    ja="質問"
                     title="Yang sering ditanyakan."
                     description="Pertanyaan lain? Tanyakan langsung lewat WhatsApp."
-                    className="self-start"
+                    className="self-start lg:sticky lg:top-28 lg:col-span-5"
                 />
 
-                <div className="border-line border-t">
+                <div className="border-ink border-t lg:col-span-7">
                     {answered.map((item, index) => (
                         <details
                             key={item.question}
                             open={index === 0}
                             className="group border-line border-b"
                         >
-                            <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 sm:py-7 [&::-webkit-details-marker]:hidden">
-                                <h3 className="text-base leading-[1.4] font-bold sm:text-xl">
+                            <summary className="hover:text-ai flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-6 transition-colors duration-300 sm:py-8 [&::-webkit-details-marker]:hidden">
+                                <h3 className="text-[17px] leading-[1.4] font-normal tracking-[-0.01em] sm:text-[21px]">
                                     {item.question}
                                 </h3>
-                                <Plus className="size-5 shrink-0 group-open:hidden sm:size-[22px]" />
-                                <Minus className="text-shu hidden size-5 shrink-0 group-open:block sm:size-[22px]" />
+                                <Plus
+                                    className="ease-out-expo size-5 shrink-0 transition-transform duration-500 group-open:rotate-45"
+                                    strokeWidth={1.5}
+                                />
                             </summary>
-                            <p className="text-ink-muted -mt-1 max-w-[680px] pb-5 text-sm leading-[1.7] sm:-mt-3 sm:pb-7 sm:text-base sm:leading-[1.75]">
+                            <p className="text-ink-muted -mt-2 max-w-[640px] pb-7 text-[15px] leading-[1.8] sm:pb-9 sm:text-base">
                                 {item.answer}
                             </p>
                         </details>

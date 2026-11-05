@@ -71,7 +71,7 @@ export default function Dashboard({ stats, recentUpdates }: Props) {
             <AdminPage>
                 <PageHeader
                     title={`Halo, ${auth.user.name.split(' ')[0]}`}
-                    description="Ringkasan project ShikaComp hari ini."
+                    description="Ringkasan project Miravatech hari ini."
                     actions={
                         <>
                             <Button variant="outline" asChild>

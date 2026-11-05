@@ -1,5 +1,5 @@
+import { Reveal, Rule } from '@/components/landing/motion';
 import { Container, SectionHeading } from '@/components/landing/primitives';
-import { cn } from '@/lib/utils';
 
 const steps = [
     {
@@ -36,58 +36,53 @@ export function Process() {
     return (
         <section
             id="proses"
-            className="bg-paper-deep scroll-mt-16 py-14 sm:scroll-mt-[88px] sm:py-20 lg:py-28"
+            className="night-band text-night-text scroll-mt-16 py-20 sm:scroll-mt-20 sm:py-28 lg:py-40"
         >
-            <Container className="flex flex-col gap-7 sm:gap-16">
+            <Container className="flex flex-col gap-14 sm:gap-20">
                 <SectionHeading
-                    numeral="二"
-                    label="PROSES KERJA"
+                    index={2}
+                    label="Proses kerja"
+                    ja="工程"
                     title="Empat langkah, tanpa kejutan di tengah jalan."
-                    className="lg:items-center lg:text-center"
+                    tone="dark"
                 />
 
-                <ol className="grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4">
-                    {steps.map((step, index) => {
-                        const number = String(index + 1).padStart(2, '0');
-
-                        return (
-                            <li
-                                key={step.romaji}
-                                className={cn(
-                                    'flex gap-5 border-t-2 py-5 sm:flex-col sm:gap-3.5 sm:pt-7 sm:pb-8',
+                <ol className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+                    {steps.map((step, index) => (
+                        <li key={step.romaji} className="flex flex-col gap-7">
+                            <Rule
+                                delay={index * 120}
+                                className={
                                     index === 0
-                                        ? 'border-shu'
-                                        : 'border-line-strong',
-                                )}
+                                        ? 'bg-ai-light'
+                                        : 'bg-night-line'
+                                }
+                            />
+                            <Reveal
+                                delay={index * 120}
+                                className="flex gap-6 sm:gap-7"
                             >
-                                <div className="flex w-[92px] shrink-0 items-baseline justify-between sm:w-auto">
-                                    <span
-                                        lang="ja"
-                                        className="font-display text-[30px] leading-[1.1] font-black whitespace-nowrap sm:text-5xl lg:text-[64px] lg:leading-none"
-                                    >
-                                        {step.kanji}
-                                    </span>
-                                    <span className="text-shu hidden font-mono text-[13px] sm:inline">
-                                        {number}
-                                    </span>
-                                </div>
-                                <div className="flex flex-col gap-1.5 sm:gap-3.5">
-                                    <p className="text-ink-subtle font-mono text-[11px] tracking-[0.16em] sm:text-xs sm:tracking-[0.18em]">
-                                        <span className="sm:hidden">
-                                            {number} ·{' '}
-                                        </span>
+                                <span
+                                    lang="ja"
+                                    className="tategaki text-[30px] leading-none tracking-[0.2em] text-white sm:text-[36px]"
+                                >
+                                    {step.kanji}
+                                </span>
+                                <div className="flex flex-col gap-3">
+                                    <p className="text-night-muted font-mono text-[11px] tracking-[0.14em]">
+                                        {String(index + 1).padStart(2, '0')} ·{' '}
                                         {step.romaji}
                                     </p>
-                                    <h3 className="text-[17px] font-bold sm:text-xl">
+                                    <h3 className="text-[20px] font-normal tracking-[-0.01em] sm:text-[22px]">
                                         {step.title}
                                     </h3>
-                                    <p className="text-ink-muted text-sm leading-[1.65] sm:text-[15px] sm:leading-[1.7]">
+                                    <p className="text-night-muted text-[14px] leading-[1.75] sm:text-[15px]">
                                         {step.description}
                                     </p>
                                 </div>
-                            </li>
-                        );
-                    })}
+                            </Reveal>
+                        </li>
+                    ))}
                 </ol>
             </Container>
         </section>

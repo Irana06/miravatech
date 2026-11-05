@@ -1,5 +1,6 @@
 import { Link } from '@inertiajs/react';
-import { Menu, MessageCircle } from 'lucide-react';
+import { ArrowRight, Menu } from 'lucide-react';
+import { MiravaLogo } from '@/components/landing/brand';
 import { useState } from 'react';
 import {
     buttonDark,
@@ -33,27 +34,10 @@ export function BrandMark({ className }: { className?: string }) {
     return (
         <Link
             href={home()}
-            className={cn('flex items-center gap-3', className)}
-            aria-label="Yushika · ShikaComp, ke beranda"
+            className={cn('flex items-center', className)}
+            aria-label="Miravatech, ke beranda"
         >
-            <img
-                src="/images/brand/logo-icon.jpg"
-                alt=""
-                width={46}
-                height={46}
-                className="size-10 rounded-[11px] object-cover sm:size-[46px] sm:rounded-xl"
-            />
-            <span className="flex flex-col gap-1">
-                <span className="font-display text-[21px] leading-none font-black sm:text-2xl">
-                    Yushika
-                </span>
-                <span className="text-ink-subtle text-[10px] leading-none font-bold tracking-[0.14em] sm:text-[11px]">
-                    SHIKACOMP ·{' '}
-                    <span lang="ja" className="tracking-normal">
-                        ユシカ
-                    </span>
-                </span>
-            </span>
+            <MiravaLogo className="w-[136px] sm:w-[156px]" />
         </Link>
     );
 }
@@ -62,19 +46,19 @@ export function SiteHeader() {
     const [open, setOpen] = useState(false);
 
     return (
-        <header className="border-line bg-paper/90 sticky top-0 z-40 border-b backdrop-blur-md">
-            <Container className="flex h-16 items-center justify-between gap-6 sm:h-[88px]">
+        <header className="border-line bg-paper/85 sticky top-0 z-40 border-b backdrop-blur-md">
+            <Container className="flex h-16 items-center justify-between gap-6 sm:h-20">
                 <BrandMark />
 
                 <nav
                     aria-label="Navigasi utama"
-                    className="hidden items-center gap-9 text-[15px] font-medium lg:flex"
+                    className="hidden items-center gap-9 text-[14px] lg:flex"
                 >
                     {navItems.map((item) => (
                         <a
                             key={item.href}
                             href={item.href}
-                            className="text-ink hover:text-shu transition-colors"
+                            className="text-ink-muted hover:text-ink link-sweep py-1 transition-colors"
                         >
                             {item.label}
                         </a>
@@ -85,19 +69,19 @@ export function SiteHeader() {
                     message={CONSULT_MESSAGE}
                     className={cn(
                         buttonDark,
-                        'hidden h-11 px-5 text-sm lg:inline-flex',
+                        'hidden h-10 px-5 text-[13px] lg:inline-flex',
                     )}
                 >
-                    <MessageCircle className="size-[18px]" />
                     Konsultasi
+                    <ArrowRight className="size-3.5" />
                 </WhatsappLink>
 
                 <Sheet open={open} onOpenChange={setOpen}>
                     <SheetTrigger
-                        className="text-ink -mr-2 flex size-11 items-center justify-center rounded-xl lg:hidden"
+                        className="text-ink -mr-2 flex size-11 items-center justify-center lg:hidden"
                         aria-label="Buka menu"
                     >
-                        <Menu className="size-6" />
+                        <Menu className="size-6" strokeWidth={1.5} />
                     </SheetTrigger>
                     <SheetContent
                         side="right"
@@ -113,7 +97,7 @@ export function SiteHeader() {
                                     key={item.href}
                                     href={item.href}
                                     onClick={() => setOpen(false)}
-                                    className="border-line border-b py-4 text-lg font-medium"
+                                    className="border-line border-b py-4 text-[22px] font-light tracking-[-0.02em]"
                                 >
                                     {item.label}
                                 </a>
@@ -123,8 +107,8 @@ export function SiteHeader() {
                             message={CONSULT_MESSAGE}
                             className={cn(buttonPrimary, 'mt-8 w-full')}
                         >
-                            <MessageCircle className="size-5" />
                             Konsultasi via WhatsApp
+                            <ArrowRight className="size-4" />
                         </WhatsappLink>
                     </SheetContent>
                 </Sheet>

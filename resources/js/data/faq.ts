@@ -23,7 +23,7 @@ export const faq: FaqItem[] = [
     },
     {
         question: 'Apakah source code diserahkan ke saya?',
-        answer: 'Bisa. Setelah project selesai ada dua pilihan: dirawat ShikaComp lewat paket Maintenance (website tetap online di server saya, update dan backup diurus), atau serah terima penuh berupa source code, database, dan akses server beserta panduan singkat. Mulai dengan Maintenance pun tetap bisa minta serah terima kapan saja.',
+        answer: 'Bisa. Setelah project selesai ada dua pilihan: dirawat Miravatech lewat paket Maintenance (website tetap online di server saya, update dan backup diurus), atau serah terima penuh berupa source code, database, dan akses server beserta panduan singkat. Mulai dengan Maintenance pun tetap bisa minta serah terima kapan saja.',
     },
     {
         question: 'Apakah ada garansi?',

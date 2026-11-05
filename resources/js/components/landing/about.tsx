@@ -51,20 +51,22 @@ export function About() {
                         }
                     />
                     <p className="text-ink-soft text-[15px] leading-[1.75] sm:text-lg sm:leading-[1.8]">
-                        Developer fullstack di balik ShikaComp. Sehari-hari saya
-                        membangun website dengan Laravel dan React, aplikasi
-                        mobile dengan Flutter, dan mengurus server sampai
-                        semuanya benar-benar online.
+                        Developer fullstack di balik Miravatech. Sehari-hari
+                        saya membangun website dengan Laravel dan React,
+                        aplikasi mobile dengan Flutter, dan mengurus server
+                        sampai semuanya benar-benar online.
                     </p>
                     <p className="text-ink-soft text-[15px] leading-[1.75] sm:text-lg sm:leading-[1.8]">
-                        Nama ShikaComp berasal dari{' '}
+                        Nama Miravatech gabungan dari{' '}
+                        <span className="font-bold">mira</span>, dari{' '}
                         <span lang="ja" className="font-display font-bold">
-                            鹿
+                            未来
                         </span>{' '}
-                        <span className="font-bold">shika</span>, rusa dalam
-                        bahasa Jepang. Rusa di Nara terkenal menyambut
-                        pengunjung dengan membungkuk. Semangat itu yang saya
-                        bawa: melayani dengan sopan, teliti, dan sepenuh hati.
+                        (mirai), masa depan dalam bahasa Jepang;{' '}
+                        <span className="font-bold">vate</span>, dari innovate;
+                        dan <span className="font-bold">tech</span>. Artinya
+                        kurang lebih teknologi yang menciptakan inovasi untuk
+                        masa depan.
                     </p>
                     <dl className="border-line-strong hidden gap-10 border-t pt-5 sm:flex">
                         {expertise.map((item) => (

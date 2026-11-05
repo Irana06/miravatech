@@ -50,7 +50,7 @@ class HomePageTest extends TestCase
 
     public function test_home_page_shares_contact_details()
     {
-        config(['shikacomp.whatsapp' => '081234567890']);
+        config(['miravatech.whatsapp' => '081234567890']);
 
         $this->get(route('home'))
             ->assertInertia(fn (Assert $page) => $page

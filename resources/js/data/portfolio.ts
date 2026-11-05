@@ -17,7 +17,7 @@ export const portfolio: PortfolioItem[] = [
         title: 'Monshika',
         category: 'Aplikasi Mobile · Flutter',
         summary:
-            'Produk ShikaComp: aplikasi keuangan pribadi yang datanya tetap di HP, bisa dipakai offline, dengan backup terenkripsi ke Google Drive.',
+            'Produk Miravatech: aplikasi keuangan pribadi yang datanya tetap di HP, bisa dipakai offline, dengan backup terenkripsi ke Google Drive.',
         image: '/images/portfolio/monshika.webp',
         url: 'https://github.com/Irana06/monshika',
         highlights: [

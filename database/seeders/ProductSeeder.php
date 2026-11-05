@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
             $category['slug'] => ProductCategory::updateOrCreate(['slug' => $category['slug']], $category),
         ]);
 
-        $waTemplate = 'Halo ShikaComp, saya tertarik dengan paket {paket} ({kategori}). Boleh konsultasi dulu?';
+        $waTemplate = 'Halo Miravatech, saya tertarik dengan paket {paket} ({kategori}). Boleh konsultasi dulu?';
 
         $packages = [
             'website' => [
@@ -124,7 +124,7 @@ class ProductSeeder extends Seeder
                     'is_featured' => true,
                     'features' => [
                         'Semua di paket Ume',
-                        'Hosting di server ShikaComp, termasuk SSL',
+                        'Hosting di server Miravatech, termasuk SSL',
                         'Perbaikan bug & perubahan kecil hingga 2 jam per bulan',
                         'Backup harian',
                     ],

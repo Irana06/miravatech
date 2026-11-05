@@ -35,12 +35,12 @@
         <meta name="theme-color" content="#d53b3a">
 
         {{-- Link previews (WhatsApp, Facebook, LinkedIn, X) read these without running JavaScript. --}}
-        <meta name="description" content="ShikaComp oleh Yushika: jasa pembuatan website (Laravel & React), aplikasi mobile (Flutter), maintenance, pemulihan website kena hack, dan integrasi sistem.">
+        <meta name="description" content="Miravatech oleh Yushika: jasa pembuatan website (Laravel & React), aplikasi mobile (Flutter), maintenance, pemulihan website kena hack, dan integrasi sistem.">
         <link rel="canonical" href="{{ url()->current() }}">
         <meta property="og:type" content="website">
-        <meta property="og:site_name" content="ShikaComp">
+        <meta property="og:site_name" content="Miravatech">
         <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:title" content="ShikaComp · Jasa Pembuatan Website & Aplikasi">
+        <meta property="og:title" content="Miravatech · Jasa Pembuatan Website & Aplikasi">
         <meta property="og:description" content="Website, aplikasi mobile, dan servernya. Dirancang teliti, dibangun sepenuh hati.">
         <meta property="og:image" content="{{ url('/images/og.jpg') }}">
         <meta property="og:image:width" content="1200">

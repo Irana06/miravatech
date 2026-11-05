@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 const options = [
     {
         icon: ShieldCheck,
-        title: 'Dirawat ShikaComp',
+        title: 'Dirawat Miravatech',
         badge: 'Paling banyak dipilih',
         description:
             'Website atau aplikasi tetap online di server yang saya kelola. Update, backup, dan perbaikan sudah diurus lewat paket Maintenance bulanan, jadi Anda cukup fokus ke bisnis.',

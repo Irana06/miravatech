@@ -19,7 +19,7 @@ class ProjectTest extends TestCase
     {
         $project = Project::factory()->create();
 
-        $this->assertMatchesRegularExpression('/^SHC-[A-Z2-9]{4}-[A-Z2-9]{4}$/', $project->project_code);
+        $this->assertMatchesRegularExpression('/^MRV-[A-Z2-9]{4}-[A-Z2-9]{4}$/', $project->project_code);
         $this->assertSame(StatusEnum::Pending, $project->status);
         $this->assertSame(PaymentStatusEnum::Unpaid, $project->payment_status);
         $this->assertCount(1, $project->statusLogs);

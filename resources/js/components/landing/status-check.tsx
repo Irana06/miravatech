@@ -4,7 +4,7 @@ import { StatusCheckForm } from '@/components/landing/status-check-form';
 import type { ProjectStatus } from '@/types';
 
 const example: ProjectStatus = {
-    code: 'SHC-XXXX-XXXX',
+    code: 'MRV-XXXX-XXXX',
     title: 'Website Company Profile',
     package: 'Paket Take · Website',
     status: 'development',

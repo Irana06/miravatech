@@ -38,7 +38,7 @@ export default function ProjectStatusPage({ code, project }: Props) {
                                 Masukkan kode project yang Anda terima saat
                                 order. Formatnya{' '}
                                 <span className="font-mono whitespace-nowrap">
-                                    SHC-XXXX-XXXX
+                                    MRV-XXXX-XXXX
                                 </span>
                                 .
                             </>
@@ -75,7 +75,7 @@ export default function ProjectStatusPage({ code, project }: Props) {
                                 </p>
                             </div>
                             <WhatsappLink
-                                message={`Halo ShikaComp, saya ingin menanyakan status project dengan kode ${code}.`}
+                                message={`Halo Miravatech, saya ingin menanyakan status project dengan kode ${code}.`}
                                 className={cn(buttonOutline, 'h-11 text-sm')}
                             >
                                 <MessageCircle className="size-[18px]" />

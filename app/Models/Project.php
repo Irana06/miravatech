@@ -75,7 +75,7 @@ class Project extends Model
     }
 
     /**
-     * Generate a unique, human-friendly project code, e.g. SHC-7KQ2-M9XA.
+     * Generate a unique, human-friendly project code, e.g. MRV-7KQ2-M9XA.
      */
     public static function generateCode(): string
     {
@@ -85,7 +85,7 @@ class Project extends Model
         ));
 
         do {
-            $code = 'SHC-'.$segment().'-'.$segment();
+            $code = 'MRV-'.$segment().'-'.$segment();
         } while (static::where('project_code', $code)->exists());
 
         return $code;

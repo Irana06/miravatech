@@ -31,7 +31,7 @@ type Props = {
 
 export default function ShowProject({ project, statusOptions }: Props) {
     const { client } = project;
-    const clientMessage = `Halo ${client.name ?? ''}, ini update project "${project.title}" dari ShikaComp. Progres terbaru bisa dicek di ${project.status_url} (kode ${project.project_code}).`;
+    const clientMessage = `Halo ${client.name ?? ''}, ini update project "${project.title}" dari Miravatech. Progres terbaru bisa dicek di ${project.status_url} (kode ${project.project_code}).`;
 
     return (
         <>

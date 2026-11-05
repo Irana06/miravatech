@@ -14,7 +14,7 @@ export function SiteFooter() {
                     <div className="flex items-center gap-5 sm:gap-6">
                         <img
                             src="/images/brand/logo-full.jpg"
-                            alt="Logo Yushika ShikaComp"
+                            alt="Logo Miravatech"
                             width={480}
                             height={468}
                             loading="lazy"
@@ -34,7 +34,7 @@ export function SiteFooter() {
                         <a href="/#layanan">Integrasi Sistem</a>
                     </FooterColumn>
 
-                    <FooterColumn title="SHIKACOMP">
+                    <FooterColumn title="MIRAVATECH">
                         {portfolio.length > 0 && (
                             <a href="/#portofolio">Portofolio</a>
                         )}
@@ -65,7 +65,7 @@ export function SiteFooter() {
                 </div>
 
                 <div className="border-line-strong text-ink-subtle flex items-center justify-between gap-4 border-t pt-5 text-[13px] sm:pt-7 sm:text-sm">
-                    <p>© {new Date().getFullYear()} ShikaComp · Yushika</p>
+                    <p>© {new Date().getFullYear()} Miravatech · Yushika</p>
                     <p lang="ja" className="font-display tracking-[0.3em]">
                         丁寧に、つくる。
                     </p>

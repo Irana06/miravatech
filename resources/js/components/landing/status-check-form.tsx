@@ -30,7 +30,7 @@ export function StatusCheckForm({ defaultCode, tone = 'dark' }: Props) {
                             name="kode"
                             defaultValue={defaultCode ?? ''}
                             required
-                            placeholder="SHC-XXXX-XXXX"
+                            placeholder="MRV-XXXX-XXXX"
                             autoComplete="off"
                             autoCapitalize="characters"
                             spellCheck={false}

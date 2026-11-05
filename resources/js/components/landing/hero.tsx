@@ -26,7 +26,7 @@ export function Hero() {
                     </h1>
 
                     <p className="text-ink-muted max-w-[540px] text-base leading-[1.7] sm:text-lg lg:text-[19px] lg:leading-[1.75]">
-                        ShikaComp membantu UMKM, startup, instansi, hingga
+                        Miravatech membantu UMKM, startup, instansi, hingga
                         kebutuhan personal: website dengan Laravel &amp; React,
                         aplikasi mobile dengan Flutter, sampai benar-benar
                         online di server.

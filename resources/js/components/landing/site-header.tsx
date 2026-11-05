@@ -34,7 +34,7 @@ export function BrandMark({ className }: { className?: string }) {
         <Link
             href={home()}
             className={cn('flex items-center gap-3', className)}
-            aria-label="Yushika · ShikaComp, ke beranda"
+            aria-label="Miravatech, ke beranda"
         >
             <img
                 src="/images/brand/logo-icon.jpg"
@@ -45,13 +45,10 @@ export function BrandMark({ className }: { className?: string }) {
             />
             <span className="flex flex-col gap-1">
                 <span className="font-display text-[21px] leading-none font-black sm:text-2xl">
-                    Yushika
+                    Miravatech
                 </span>
                 <span className="text-ink-subtle text-[10px] leading-none font-bold tracking-[0.14em] sm:text-[11px]">
-                    SHIKACOMP ·{' '}
-                    <span lang="ja" className="tracking-normal">
-                        ユシカ
-                    </span>
+                    BY YUSHIKA
                 </span>
             </span>
         </Link>

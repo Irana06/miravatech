@@ -162,7 +162,7 @@ return [
 
     'features' => [
         // Registration is off: clients order via WhatsApp and track projects by
-        // code. Admin accounts are created with `php artisan shikacomp:admin`.
+        // code. Admin accounts are created with `php artisan miravatech:admin`.
         // Features::registration(),
         Features::resetPasswords(),
         Features::emailVerification(),

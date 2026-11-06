@@ -14,11 +14,11 @@ import { cn } from '@/lib/utils';
 import { fillTemplate, PACKAGE_MESSAGE } from '@/lib/whatsapp';
 import type { PackageCategory, PackageProduct } from '@/types';
 
-// One kanji per tier: 始 (start), 進 (advance), 極 (the utmost).
+// The classic Japanese three ranks: 梅 plum, 竹 bamboo, 松 pine (the highest).
 const tierKanji: Record<string, string> = {
-    starter: '始',
-    growth: '進',
-    pro: '極',
+    ume: '梅',
+    take: '竹',
+    matsu: '松',
 };
 
 // Categories billed per period instead of once per project.
@@ -47,7 +47,7 @@ export function Pricing({ categories }: { categories: PackageCategory[] }) {
                     label="Paket & harga"
                     ja="料金"
                     title="Harga bersahabat, mulai dari yang paling sederhana."
-                    description="Tiga tingkatan: Starter, Growth, dan Pro. Mulai dari yang Anda butuhkan sekarang, naik kelas saat bisnis tumbuh. Semua paket bisa disesuaikan."
+                    description="Tiga tingkatan ala Jepang: Ume (梅, plum), Take (竹, bambu), dan Matsu (松, pinus) yang tertinggi. Mulai dari yang Anda butuhkan sekarang, naik kelas saat bisnis tumbuh. Semua paket bisa disesuaikan."
                 />
 
                 <div className="flex flex-col">

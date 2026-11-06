@@ -6,7 +6,7 @@ import type { ProjectStatus } from '@/types';
 const example: ProjectStatus = {
     code: 'MRV-XXXX-XXXX',
     title: 'Website Company Profile',
-    package: 'Paket Growth · Website',
+    package: 'Paket Take · Website',
     status: 'development',
     status_label: 'Development',
     timeline: [

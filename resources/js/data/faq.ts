@@ -19,7 +19,7 @@ export const faq: FaqItem[] = [
     },
     {
         question: 'Berapa kali saya bisa minta revisi?',
-        answer: 'Starter 2 kali, Growth 3 kali, dan Pro disepakati bersama di tahap Rancang. Perubahan di luar itu dihitung sebagai pekerjaan tambahan, dengan harga yang disampaikan dulu sebelum dikerjakan.',
+        answer: 'Ume 2 kali, Take 3 kali, dan Matsu disepakati bersama di tahap Rancang. Perubahan di luar itu dihitung sebagai pekerjaan tambahan, dengan harga yang disampaikan dulu sebelum dikerjakan.',
     },
     {
         question: 'Apakah source code diserahkan ke saya?',

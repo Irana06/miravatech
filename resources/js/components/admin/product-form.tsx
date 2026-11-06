@@ -58,7 +58,7 @@ export function ProductForm({ product, categories }: Props) {
                                         name="name"
                                         required
                                         defaultValue={product?.name}
-                                        placeholder="Growth"
+                                        placeholder="Take"
                                     />
                                 </FormField>
 

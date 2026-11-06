@@ -29,7 +29,7 @@ class HomePageTest extends TestCase
                 ->where('categories.0.slug', 'website')
                 ->where('categories.3.slug', 'perbaikan')
                 ->has('categories.0.products', 3)
-                ->where('categories.0.products.0.name', 'Starter')
+                ->where('categories.0.products.0.name', 'Ume')
                 ->where('categories.0.products.1.is_featured', true)
                 ->has('categories.0.products.2.features', 4)
             );

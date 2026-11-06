@@ -31,9 +31,9 @@ class ProductSeeder extends Seeder
             'website' => [
                 [
                     'slug' => 'website-ume',
-                    'name' => 'Starter',
+                    'name' => 'Ume',
                     'tagline' => 'UMKM & personal',
-                    'price' => 750000,
+                    'price' => 1250000,
                     'features' => [
                         'Landing page atau company profile',
                         'Tampilan rapi di HP & desktop',
@@ -43,7 +43,7 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'website-take',
-                    'name' => 'Growth',
+                    'name' => 'Take',
                     'tagline' => 'Bisnis yang sedang tumbuh',
                     'price' => 2500000,
                     'is_featured' => true,
@@ -55,7 +55,7 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'website-matsu',
-                    'name' => 'Pro',
+                    'name' => 'Matsu',
                     'tagline' => 'Industri, korporat & instansi',
                     'price' => 6500000,
                     'features' => [
@@ -69,7 +69,7 @@ class ProductSeeder extends Seeder
             'aplikasi-mobile' => [
                 [
                     'slug' => 'mobile-ume',
-                    'name' => 'Starter',
+                    'name' => 'Ume',
                     'tagline' => 'Aplikasi sederhana',
                     'price' => 3000000,
                     'features' => [
@@ -80,7 +80,7 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'mobile-take',
-                    'name' => 'Growth',
+                    'name' => 'Take',
                     'tagline' => 'Aplikasi dengan akun & server',
                     'price' => 7500000,
                     'is_featured' => true,
@@ -93,7 +93,7 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'mobile-matsu',
-                    'name' => 'Pro',
+                    'name' => 'Matsu',
                     'tagline' => 'Aplikasi custom',
                     'price' => null,
                     'features' => [
@@ -106,7 +106,7 @@ class ProductSeeder extends Seeder
             'maintenance' => [
                 [
                     'slug' => 'maintenance-ume',
-                    'name' => 'Starter',
+                    'name' => 'Ume',
                     'tagline' => 'Website tetap aman',
                     'price' => 100000,
                     'features' => [
@@ -118,12 +118,12 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'maintenance-take',
-                    'name' => 'Growth',
+                    'name' => 'Take',
                     'tagline' => 'Website bisnis yang aktif',
                     'price' => 300000,
                     'is_featured' => true,
                     'features' => [
-                        'Semua di paket Starter',
+                        'Semua di paket Ume',
                         'Hosting di server Miravatech, termasuk SSL',
                         'Perbaikan bug & perubahan kecil hingga 2 jam per bulan',
                         'Backup harian',
@@ -131,11 +131,11 @@ class ProductSeeder extends Seeder
                 ],
                 [
                     'slug' => 'maintenance-matsu',
-                    'name' => 'Pro',
+                    'name' => 'Matsu',
                     'tagline' => 'Sistem yang harus selalu jalan',
                     'price' => 900000,
                     'features' => [
-                        'Semua di paket Growth',
+                        'Semua di paket Take',
                         'Server / VPS khusus yang dikelola penuh',
                         'Perubahan & pengembangan hingga 6 jam per bulan',
                         'Respons prioritas',

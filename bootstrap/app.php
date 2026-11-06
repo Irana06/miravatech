@@ -16,6 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // The site sits behind Cloudflare Tunnel, which reaches nginx from this
+        // machine and passes the original https scheme in X-Forwarded-Proto.
+        $middleware->trustProxies(at: ['127.0.0.1', '::1']);
+
         $middleware->encryptCookies(except: ['appearance', 'sidebar_state']);
 
         $middleware->alias([

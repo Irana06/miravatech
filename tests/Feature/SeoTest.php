@@ -22,4 +22,20 @@ class SeoTest extends TestCase
             ->assertSee('Sitemap: '.route('sitemap'), false)
             ->assertSee('Disallow: /admin', false);
     }
+
+    public function test_links_use_https_when_the_tunnel_forwards_an_https_request()
+    {
+        $this->withHeaders(['X-Forwarded-Proto' => 'https'])
+            ->get('/sitemap.xml')
+            ->assertSee('<loc>https://', false)
+            ->assertDontSee('<loc>http://', false);
+    }
+
+    public function test_forwarded_headers_from_other_hosts_are_ignored()
+    {
+        $this->withServerVariables(['REMOTE_ADDR' => '192.168.1.50'])
+            ->withHeaders(['X-Forwarded-Proto' => 'https'])
+            ->get('/sitemap.xml')
+            ->assertDontSee('<loc>https://', false);
+    }
 }

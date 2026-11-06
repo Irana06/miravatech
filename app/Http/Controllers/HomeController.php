@@ -22,6 +22,7 @@ class HomeController extends Controller
 
         return Inertia::render('public/home', [
             'categories' => $categories->map(fn (ProductCategory $category) => $this->presentCategory($category)),
+            'showPrices' => config('miravatech.show_prices'),
         ]);
     }
 
@@ -48,7 +49,8 @@ class HomeController extends Controller
             'name' => $product->name,
             'slug' => $product->slug,
             'tagline' => $product->tagline,
-            'price' => $product->price,
+            // Hidden prices are left out of the page entirely, not just visually.
+            'price' => config('miravatech.show_prices') ? $product->price : null,
             'features' => $product->features ?? [],
             'wa_template' => $product->wa_template,
             'is_featured' => $product->is_featured,

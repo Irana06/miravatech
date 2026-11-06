@@ -20,4 +20,16 @@ return [
 
     'business_hours' => env('MIRAVATECH_BUSINESS_HOURS'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Package Prices
+    |--------------------------------------------------------------------------
+    |
+    | While false, the packages are listed without their prices and visitors
+    | are asked to check the price on WhatsApp. Prices stay in the admin panel.
+    |
+    */
+
+    'show_prices' => (bool) env('MIRAVATECH_SHOW_PRICES', false),
+
 ];

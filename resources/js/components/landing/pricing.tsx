@@ -26,7 +26,13 @@ const priceUnit: Record<string, string> = {
     maintenance: '/bulan',
 };
 
-export function Pricing({ categories }: { categories: PackageCategory[] }) {
+export function Pricing({
+    categories,
+    showPrices,
+}: {
+    categories: PackageCategory[];
+    showPrices: boolean;
+}) {
     const [activeSlug, setActiveSlug] = useState(categories[0]?.slug);
     const active =
         categories.find((category) => category.slug === activeSlug) ??
@@ -96,15 +102,18 @@ export function Pricing({ categories }: { categories: PackageCategory[] }) {
                                 index={index}
                                 categoryName={active.name}
                                 unit={priceUnit[active.slug]}
+                                showPrice={showPrices}
                             />
                         ))}
                     </ul>
                 </div>
 
                 <p className="text-ink-subtle max-w-[620px] text-[13px] leading-[1.7]">
-                    Harga di atas adalah harga awal; harga final ditentukan
-                    setelah diskusi brief. Tombol pesan membuka WhatsApp dengan
-                    pesan yang sudah terisi otomatis.
+                    {showPrices
+                        ? 'Harga di atas adalah harga awal; harga final ditentukan setelah diskusi brief.'
+                        : 'Harga sedang kami susun ulang. Tanyakan langsung via WhatsApp untuk penawaran sesuai kebutuhan Anda.'}{' '}
+                    Tombol pesan membuka WhatsApp dengan pesan yang sudah terisi
+                    otomatis.
                 </p>
 
                 <Aftercare />
@@ -118,11 +127,13 @@ function PackageColumn({
     index,
     categoryName,
     unit,
+    showPrice,
 }: {
     product: PackageProduct;
     index: number;
     categoryName: string;
     unit?: string;
+    showPrice: boolean;
 }) {
     const featured = product.is_featured;
     const kanji = tierKanji[product.name.toLowerCase()];
@@ -176,9 +187,11 @@ function PackageColumn({
                         {product.price === null ? 'Harga' : 'Mulai dari'}
                     </p>
                     <p className="text-[34px] leading-none font-light tracking-[-0.03em] tabular-nums sm:text-[40px]">
-                        {product.price === null
-                            ? 'Sesuai brief'
-                            : formatRupiah(product.price)}
+                        {product.price !== null
+                            ? formatRupiah(product.price)
+                            : showPrice
+                              ? 'Sesuai brief'
+                              : 'Segera hadir'}
                         {product.price !== null && unit && (
                             <span className="text-ink-subtle ml-1.5 text-base tracking-normal">
                                 {unit}
@@ -208,9 +221,11 @@ function PackageColumn({
                         featured ? buttonPrimary : buttonOutline,
                     )}
                 >
-                    {product.price === null
-                        ? 'Diskusikan via WhatsApp'
-                        : 'Pesan via WhatsApp'}
+                    {product.price !== null
+                        ? 'Pesan via WhatsApp'
+                        : showPrice
+                          ? 'Diskusikan via WhatsApp'
+                          : 'Tanya harga via WhatsApp'}
                     <ArrowRight className="size-4" />
                 </WhatsappLink>
             </Reveal>

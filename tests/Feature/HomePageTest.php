@@ -35,6 +35,32 @@ class HomePageTest extends TestCase
             );
     }
 
+    public function test_prices_are_left_out_of_the_page_while_hidden()
+    {
+        config(['miravatech.show_prices' => false]);
+        $this->seed(ProductSeeder::class);
+
+        $this->get(route('home'))
+            ->assertInertia(fn (Assert $page) => $page
+                ->where('showPrices', false)
+                ->where('categories.0.products.0.name', 'Ume')
+                ->where('categories.0.products.0.price', null)
+                ->where('categories.0.products.1.price', null)
+            );
+    }
+
+    public function test_prices_are_shown_when_switched_on()
+    {
+        config(['miravatech.show_prices' => true]);
+        $this->seed(ProductSeeder::class);
+
+        $this->get(route('home'))
+            ->assertInertia(fn (Assert $page) => $page
+                ->where('showPrices', true)
+                ->where('categories.0.products.0.price', '1250000.00')
+            );
+    }
+
     public function test_product_seeder_keeps_prices_set_from_the_admin_panel()
     {
         $this->seed(ProductSeeder::class);

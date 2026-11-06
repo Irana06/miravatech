@@ -12,9 +12,10 @@ import type { PackageCategory } from '@/types';
 
 type Props = {
     categories: PackageCategory[];
+    showPrices: boolean;
 };
 
-export default function Home({ categories }: Props) {
+export default function Home({ categories, showPrices }: Props) {
     return (
         <>
             <Head title="Jasa Pembuatan Website & Aplikasi">
@@ -28,7 +29,7 @@ export default function Home({ categories }: Props) {
             <Hero />
             <Services />
             <Process />
-            <Pricing categories={categories} />
+            <Pricing categories={categories} showPrices={showPrices} />
             <StatusCheck />
             <Portfolio />
             <About />

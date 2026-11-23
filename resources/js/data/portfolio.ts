@@ -39,12 +39,12 @@ export const portfolio: PortfolioItem[] = [
         ],
     },
     {
-        title: 'yushika.my.id',
+        title: 'founder.miravatech.dev',
         category: 'Website · React',
         summary:
             'Portofolio pribadi dengan terminal interaktif, di-hosting sendiri di home server lewat Cloudflare Tunnel.',
-        image: '/images/portfolio/yushika-portfolio.webp',
-        url: 'https://yushika.my.id',
+        image: '/images/portfolio/founder-portfolio.webp',
+        url: 'https://founder.miravatech.dev',
         highlights: [
             'Terminal yang benar-benar bisa diketik, diagram alur ala BPMN',
             'Satu file data untuk semua konten dan halaman CV',

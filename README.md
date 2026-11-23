@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://yushika.my.id"><img alt="Made by Yushika" src="https://img.shields.io/badge/by-Yushika-d53b3a?style=flat-square&labelColor=35231c"></a>
+  <a href="https://founder.miravatech.dev"><img alt="Made by Yushika" src="https://img.shields.io/badge/by-Yushika-d53b3a?style=flat-square&labelColor=35231c"></a>
   <img alt="Laravel 13" src="https://img.shields.io/badge/Laravel-13-d53b3a?style=flat-square&labelColor=35231c">
   <img alt="Inertia 3" src="https://img.shields.io/badge/Inertia-3-bb907c?style=flat-square&labelColor=35231c">
   <img alt="React 19" src="https://img.shields.io/badge/React-19-bb907c?style=flat-square&labelColor=35231c">
@@ -92,5 +92,5 @@ Anything left empty is simply hidden on the site.
 
 <p align="center">
   <img src="public/images/brand/logo-icon.jpg" alt="" width="48"><br>
-  <sub>© 2026 Miravatech · <a href="https://yushika.my.id">Yushika</a> · 丁寧に、つくる。</sub>
+  <sub>© 2026 Miravatech · <a href="https://founder.miravatech.dev">Yushika</a> · 丁寧に、つくる。</sub>
 </p>
